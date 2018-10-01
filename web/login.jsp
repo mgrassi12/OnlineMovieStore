@@ -17,5 +17,6 @@
                 <tr><td></td><td><input type="submit" value="Login"></td></tr>
             </table>
         </form>
+        <p>Don't have an account? Click <a href="register.jsp">here</a>.</p>
     </body>
 </html>

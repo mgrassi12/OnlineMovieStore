@@ -21,5 +21,6 @@
                 <tr><td></td><td><input type="submit" value="Register"> </td></tr>
             </table>
         </form>
+        <p>Already have an account? Click <a href="login.jsp">here</a>.</p>
     </body>
 </html>
