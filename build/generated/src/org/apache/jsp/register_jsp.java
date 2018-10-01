@@ -49,13 +49,12 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>New User Registration</title>\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"blockbuster.css\">\n");
-      out.write("        <img src=\"blockbuster_logo.png\" alt=\"Blockbuster Logo\" class=\"logo\">\n");
+      out.write("        <img src=\"blockbusterlogo.png\" alt=\"Blockbuster Logo\" class=\"logo\">\n");
       out.write("    </head>\n");
       out.write("    \n");
       out.write("    <body class = \"body\">\n");
       out.write("        <h1>Register</h1>\n");
-      out.write("        <!-- needs to post to main.jsp, not account -->\n");
-      out.write("        <form action=\"main.jsp\" method=\"post\">\n");
+      out.write("        <form action=\"registeraction.jsp\" method=\"post\">\n");
       out.write("            <table>\n");
       out.write("                <tr><td>Full Name</td><td><input size=\"32\" type=\"text\" name=\"name\"></td></tr>\n");
       out.write("                <tr><td>Email</td><td><input size=\"32\" type=\"email\" name=\"email\"></td></tr>\n");

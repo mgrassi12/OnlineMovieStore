@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Index</title>
         <link rel="stylesheet" type="text/css" href="blockbuster.css">
-        <img src="blockbuster_logo.png" alt="Blockbuster Logo" class="logo">
+        <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
     </head>
     
      <%
@@ -16,20 +16,18 @@
 
         if (user != null) {
             log = user.getName() + " &lt " + user.getEmail() + " &gt";
-            msg = "You are logged in as " + log;
+            msg = "You are logged in as " + log + ".";
         } else {
             log = "";
-            msg = "You are not logged in";
+            msg = "You are not logged in.";
         }
     %>
     
     <body class = "body">
         <h1>Movie Inventory</h1>
-        <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;"><%=msg%></div>
+        <div style="color: black; background: #eee; border: solid 1px #333; text-align: right; width: 100%;"><%=msg%></div>
         <% if (user != null) { %>
-        <div style="text-align: right;"><a href="logout.jsp">Logout</a></div>
-        <br>
-        <li><a href="edit_user.jsp">My Account</a></li>
+        <div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="main.jsp">Account</a>.</div>
         <% } else { %>
         <div style="text-align: right;"><a href="register.jsp">Register</a></div>
         <% } %>
