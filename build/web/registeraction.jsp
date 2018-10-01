@@ -2,11 +2,14 @@
 <%@page import="oms.user.User"%>
 
 <html>
-    <head>
+    <head class = "head">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Saving User</title>
+        <link rel="stylesheet" type="text/css" href="blockbuster.css">
+        <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
     </head>
-    <body>
+    
+    <body class = "body">
         <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
         <jsp:useBean id="movieStoreApp" class="oms.user.MovieStoreApplication" scope="application">
             <jsp:setProperty name="movieStoreApp" property="filePath" value="<%=filePath%>"/>

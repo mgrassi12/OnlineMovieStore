@@ -14,7 +14,7 @@
     <body class = "body">
         <%
             User user = (User) session.getAttribute("user");
-            if (request.getParameter("email") == null) {
+            if (user == null) {
                response.sendRedirect("login.jsp");
             }
         %>
