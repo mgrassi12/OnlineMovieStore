@@ -1,12 +1,21 @@
 package oms.user;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
+    @XmlElement(name = "name")
     private String name;
+    @XmlElement(name = "email")
     private String email;
+    @XmlElement(name = "password")
     private String password;
+    @XmlElement(name = "phone")
     private String phone;
+    @XmlElement(name = "address")
     private String address;
     
     public User() {}

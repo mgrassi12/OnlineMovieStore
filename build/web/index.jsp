@@ -29,7 +29,7 @@
         <% if (user != null) { %>
         <div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="main.jsp">Account</a>.</div>
         <% } else { %>
-        <div style="text-align: right;"><a href="register.jsp">Register</a></div>
+        <div style="text-align: right;"><a href="register.jsp">Register</a> or <a href="login.jsp">Login</a> if you already have an account.</div>
         <% } %>
     </body>
 </html>
