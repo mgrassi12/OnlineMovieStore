@@ -75,5 +75,23 @@ public class Movie implements Serializable {
     public void setAvailablecopies(int availablecopies) {
         this.availablecopies = availablecopies;
     }
+    
+    public boolean matchDate(String years){
+        int release_year = Integer.parseInt(this.releasedate.substring(Math.max(0, this.releasedate.length() - 4), this.releasedate.length()));
+        int begin_year = Integer.parseInt(years.substring(0, Math.min(years.length(), 4)));
+        int end_year = Integer.parseInt(years.substring(Math.max(0, years.length() - 4), years.length()));
+        return ((release_year >= begin_year) && (release_year <= end_year));
+    }
+    
+    public boolean matchGenre(String genre2){
+        String genre_1 = this.genre.toLowerCase().trim();
+        String genre_2 = genre2.toLowerCase().trim();
+        return genre_1.equals(genre_2);
+    }
+    
+    public boolean matchTitle(String title2){
+        String title_1 = this.title.toLowerCase().trim();
+        String title_2 = title2.toLowerCase().trim();
+        return title_1.equals(title_2);
+    }
 }
-
