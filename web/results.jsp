@@ -38,7 +38,7 @@
             <title><%= movie.getTitle()%></title>
             <genre><%= movie.getGenre()%></genre>
             <releasedate><%= movie.getReleasedate()%></releasedate>
-            <price><%= movie.getPrice()%></price>
+            <price>$<%= movie.getPrice()%></price>
             <availablecopies><%= movie.getAvailablecopies()%></availablecopies>
         </movie>
         <%}%>
