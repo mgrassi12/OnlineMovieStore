@@ -27,6 +27,7 @@
     if (matches.isEmpty()) { %>
         <h2>No match found</h2>
   <%} else {%>
+        <h3>Please select the movie you would like to add to your checkout cart: </h3>
 
 <c:set var = "xmltext"> 
     <movies xmlns="http://www.uts.edu.au/31284/oms"

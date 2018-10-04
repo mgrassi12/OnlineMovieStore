@@ -43,8 +43,6 @@
                     <input type="submit" value="Search">
                 </form>
 
-                <p>When searching by release years, do so in the form of (Earliest Year)-(Latest Year). For example: "1992-2007".</p>
-
                 <%
                     String searchparam = request.getParameter("searchparam");
                     String search = request.getParameter("search");
@@ -53,7 +51,7 @@
 
                     if (search != null && !search.isEmpty()) {%>
                 <br>
-                <h2> You searched for <%=searchparam%>: "<%=search%>". </h2>
+                <h2> You searched for <%=searchparam%>: "<%=search%>" </h2>
                 <jsp:include page="results.jsp"/>
                 <% }%>
             </td>

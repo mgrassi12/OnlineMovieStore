@@ -18,6 +18,7 @@
         <table width = "100%">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Title</th>
                     <th>Genre</th>
                     <th>Release Date</th>
@@ -33,6 +34,9 @@
     
     <xsl:template match="nsm:movie">
         <tr>
+            <td>
+                <input type="radio" name="selectedmovie"/>
+            </td>
             <td>
                 <xsl:value-of select="nsm:title"/>
             </td>
