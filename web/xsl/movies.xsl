@@ -15,7 +15,7 @@
     </xsl:template>
 
     <xsl:template match="nsm:movies" >
-        <table>
+        <table width = "100%">
             <thead>
                 <tr>
                     <th>Title</th>

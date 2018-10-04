@@ -53,8 +53,8 @@
 
                     if (search != null && !search.isEmpty()) {%>
                 <br>
-                <jsp:include page="results.jsp"/>
                 <h2> You searched for <%=searchparam%>: "<%=search%>". </h2>
+                <jsp:include page="results.jsp"/>
                 <% }%>
             </td>
             <tr></tr>

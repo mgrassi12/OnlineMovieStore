@@ -1,35 +1,49 @@
-<%@page import="oms.user.Users"%>
-<%@page import="oms.user.User"%>
+<%@page import="oms.user.*"%>
+<%@page import="oms.validator.*"%>
 
 <html>
     <head class = "head">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Saving User</title>
         <link rel="stylesheet" type="text/css" href="blockbuster.css">
-        <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
-    </head>
-    
-    <body class = "body">
-        <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
-        <jsp:useBean id="movieStoreApp" class="oms.user.MovieStoreApplication" scope="application">
-            <jsp:setProperty name="movieStoreApp" property="filePath" value="<%=filePath%>"/>
-        </jsp:useBean>
-        
-        <%
-            Users users = movieStoreApp.getUsers();
-            if (users.checkEmail(request.getParameter("email")) == null) {
-                String name = request.getParameter("name");
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                String phone = request.getParameter("phone");
-                String address = request.getParameter("address");
-                User user = new User(name,email,password,phone,address);
+    <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
+</head>
+
+<body class = "body">
+    <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+    <jsp:useBean id="movieStoreApp" class="oms.user.MovieStoreApplication" scope="application">
+        <jsp:setProperty name="movieStoreApp" property="filePath" value="<%=filePath%>"/>
+    </jsp:useBean>
+
+    <%
+        Users users = movieStoreApp.getUsers();
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        User user = new User(name, email, password, phone, address);
+        Validator validator = new Validator();
+
+        movieStoreApp.setUsers(users);
+        if (users.checkEmail("email") != null) {
+            response.sendRedirect("register.jsp");
+            session.setAttribute("existErr", "User is already registered!");
+        } else {
+            if (!validator.validateName(name)) {
+                session.setAttribute("nameErr", "Incorrect name format");
+                response.sendRedirect("register.jsp");
+            } else if (!validator.validateEmail(email)) {
+                session.setAttribute("emailErr", "Incorrect email format");
+                response.sendRedirect("register.jsp");
+            } else if (!validator.validatePassword(password)) {
+                session.setAttribute("passwordErr", "Incorrect password format");
+                response.sendRedirect("register.jsp");
+            } else {
                 users.addUser(user);
-                movieStoreApp.setUsers(users);
                 session.setAttribute("user", user);
                 response.sendRedirect("main.jsp");
-            } else { %>
-                <p>That email is already in use. <a href="register.jsp">Please try a different one</a>.</p>
-         <% } %>
-    </body>
+            }
+        }%>
+</body>
 </html>

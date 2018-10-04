@@ -23,6 +23,11 @@
     }
 %>
 
+<%
+    if (matches.isEmpty()) { %>
+        <h2>No match found</h2>
+  <%} else {%>
+
 <c:set var = "xmltext"> 
     <movies xmlns="http://www.uts.edu.au/31284/oms"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -40,4 +45,4 @@
 </c:set>
 
 <c:import url = "<%= xslPath%>" var = "xslt"/>
-<x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
+<x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>   <%}%>
