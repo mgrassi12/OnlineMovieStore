@@ -31,7 +31,7 @@
     <% } else { %>
     <div style="text-align: right;"><a href="register.jsp">Register</a> or <a href="login.jsp">Login</a> if you already have an account.</div>
     <% } %>
-    
+
     <div>
         <table class="aligncenter">
             <td>
@@ -51,11 +51,11 @@
                     session.setAttribute("searchparam", searchparam);
                     session.setAttribute("search", search);
 
-                    if (search != null && !search.isEmpty()) { %>
-                    <br>
-                    <jsp:include page="results.jsp"/>
-                    <h2> You searched for <%=searchparam%>: "<%=search%>". </h2>
-                    <% } %> 
+                    if (search != null && !search.isEmpty()) {%>
+                <br>
+                <jsp:include page="results.jsp"/>
+                <h2> You searched for <%=searchparam%>: "<%=search%>". </h2>
+                <% }%>
             </td>
             <tr></tr>
         </table>

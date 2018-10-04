@@ -12,20 +12,22 @@
 <%
     ArrayList<Movie> matches = new ArrayList<Movie>();
     Movies movies = movieApp.getMovies();
-    if(request.getParameter("search").equals("showall")){
+    if (request.getParameter("search").equals("showall")) {
         matches = movies.getList();
-    } else if(request.getParameter("searchparam").equals("Title")){
+    } else if (request.getParameter("searchparam").equals("Title")) {
         matches = movies.getTitleMatches(request.getParameter("search"));
-    } else if(request.getParameter("searchparam").equals("Genre")){
+    } else if (request.getParameter("searchparam").equals("Genre")) {
         matches = movies.getGenreMatches(request.getParameter("search"));
-    } else if(request.getParameter("searchparam").equals("Years")){
+    } else if (request.getParameter("searchparam").equals("Years")) {
         matches = movies.getDateMatches(request.getParameter("search"));
     }
 %>
 
 <c:set var = "xmltext"> 
-    <books>
-        <% for (Movie movie : matches) { %>
+    <movies xmlns="http://www.uts.edu.au/31284/oms"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.uts.edu.au/31284/oms movies.xsd">
+        <% for (Movie movie : matches) {%>
         <movie>
             <title><%= movie.getTitle()%></title>
             <genre><%= movie.getGenre()%></genre>
@@ -34,8 +36,8 @@
             <availablecopies><%= movie.getAvailablecopies()%></availablecopies>
         </movie>
         <%}%>
-    </books>
+    </movies>
 </c:set>
 
-<c:import url = "<%= xslPath %>" var = "xslt"/>
+<c:import url = "<%= xslPath%>" var = "xslt"/>
 <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
