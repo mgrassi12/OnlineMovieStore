@@ -42,13 +42,13 @@ public class UserService {
     public Users getUsers() throws IOException, Exception  {
         return getMovieStoreApp().getUsers();
     }
-  
+    
     @Path("users/{email}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public User getUser(@PathParam("email") String email) throws IOException, Exception{
+    public User getUser(@PathParam("email") String email) throws JAXBException, IOException, Exception{
         return getMovieStoreApp().getUsers().checkEmail(email);
-    }   
+    }
 }
 
 // Movie Title function
