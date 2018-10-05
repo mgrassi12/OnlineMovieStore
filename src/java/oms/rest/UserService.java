@@ -18,7 +18,7 @@ import oms.user.*;
  * @author Joe Ho
  */
 @Path("/movieStoreApp")
-public class MovieService {
+public class UserService {
     @Context
     private ServletContext application;
 
@@ -27,7 +27,7 @@ public class MovieService {
             MovieStoreApplication movieStoreApp = (MovieStoreApplication) application.getAttribute("movieStoreApp");
             if (movieStoreApp == null) {
                 movieStoreApp = new MovieStoreApplication();
-                movieStoreApp.setFilePath(application.getRealPath("WEB-INF/history.xml"));
+                movieStoreApp.setFilePath(application.getRealPath("WEB-INF/users.xml"));
                 application.setAttribute("movieStoreApp", movieStoreApp);
             }
             return movieStoreApp;
@@ -39,18 +39,16 @@ public class MovieService {
     @Path("users")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Users getUsers() throws JAXBException, IOException, Exception{
-       return getMovieStoreApp().getUsers();
+    public Users getUsers() throws IOException, Exception  {
+        return getMovieStoreApp().getUsers();
     }
-    
+  
     @Path("users/{email}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public User getUser(@PathParam("email")String email) throws JAXBException, IOException, Exception{
-       return getMovieStoreApp().getUsers().checkEmail(email);
-    }
-    
-  
+    public User getUser(@PathParam("email") String email) throws IOException, Exception{
+        return getMovieStoreApp().getUsers().checkEmail(email);
+    }   
 }
 
 // Movie Title function
