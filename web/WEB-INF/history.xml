@@ -5,7 +5,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-
-<root>
-    
-</root>
+<histories>
+<history>
+    <id>123</id>
+    <name>Bobby James</name>
+    <email>bobbyjames@gmail.com</email>
+    <paymentmethod>card</paymentmethod>
+    <saletotal>$25</saletotal>
+    <orderstatus>submitted</orderstatus>
+</history>
+</histories>
