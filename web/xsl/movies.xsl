@@ -15,30 +15,34 @@
     </xsl:template>
 
     <xsl:template match="nsm:movies" >
-        <table width = "100%">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Genre</th>
-                    <th>Release Date</th>
-                    <th>Price</th>
-                    <th>Available Copies</th>
-                </tr>
-            </thead>
-            <tbody>
-                <xsl:apply-templates />
-            </tbody>
-        </table>
+        <form action="checkout.jsp" method="post">
+            <table width = "100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Release Date</th>
+                        <th>Price</th>
+                        <th>Available Copies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <xsl:apply-templates />
+                </tbody>
+            </table>
+        </form>
     </xsl:template>
     
     <xsl:template match="nsm:movie">
         <tr>
             <td>
-                <input type="radio" name="selectedmovie"/>
-            </td>
-            <td>
-                <xsl:value-of select="nsm:title"/>
+                <a>
+                    <xsl:attribute name="href">
+                        <xsl:text>checkout.jsp?selectedmovie=</xsl:text>
+                        <xsl:value-of select="nsm:title"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="nsm:title"/>
+                </a>
             </td>
             <td>
                 <xsl:value-of select="nsm:genre"/>
@@ -46,7 +50,7 @@
             <td>
                 <xsl:value-of select="nsm:releasedate" />
             </td>
-             <td>
+            <td>
                 <xsl:value-of select="nsm:price" />
             </td>
             <td>
