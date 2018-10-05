@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-<!-- this is a test -->
-<histories>
-<history>
-    <id>123</id>
-    <name>Bobby James</name>
-    <email>bobbyjames@gmail.com</email>
-    <paymentmethod>card</paymentmethod>
-    <saletotal>$25</saletotal>
-    <orderstatus>submitted</orderstatus>
+<?xml-stylesheet type="text/xsl" href="history.xsl"?>
+<history xmlns="http://www.uts.edu.au/31284/oms"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.uts.edu.au/31284/oms history.xsd">
+    
+    <order>
+        <id>123</id>
+        <movie>
+            <title>Oceans Eight</title>
+            <genre>Action</genre>
+            <releasedate>07-06-2018</releasedate>
+            <price>15</price>
+            <purchased>1</purchased>
+        </movie>
+        <user>
+            <name>Bobby James</name>
+            <email>bobbyjames@gmail.com</email>
+        </user>
+        <paymentmethod>card</paymentmethod>
+        <saletotal>15</saletotal>
+        <status>submitted</status>
+    </order>
+    <order>
+        <id>456</id>
+        <movie>
+            <title>Avengers Infinity War</title>
+            <genre>Action</genre>
+            <releasedate>25-04-2018</releasedate>
+            <price>15</price>
+            <purchased>1</purchased>
+        </movie>
+        <user>
+            <name>Jeff Jefferson</name>
+            <email>jeff@jeffery.com</email>
+        </user>
+        <paymentmethod>card</paymentmethod>
+        <saletotal>15</saletotal>
+        <status>cancelled</status>
+    </order>
 </history>
-</histories>
