@@ -15,7 +15,7 @@
     </xsl:template>
 
     <xsl:template match="nsm:movies" >
-        <form action="checkout.jsp" method="post">
+        <form action="confirm.jsp" method="post">
             <table width = "100%">
                 <thead>
                     <tr>
@@ -38,7 +38,7 @@
             <td>
                 <a>
                     <xsl:attribute name="href">
-                        <xsl:text>checkout.jsp?selectedmovie=</xsl:text>
+                        <xsl:text>confirm.jsp?selectedmovie=</xsl:text>
                         <xsl:value-of select="nsm:title"/>
                     </xsl:attribute>
                     <xsl:value-of select="nsm:title"/>
