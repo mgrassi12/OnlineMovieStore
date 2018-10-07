@@ -12,7 +12,7 @@ import oms.movie.Movie;
 @XmlRootElement(name = "order", namespace = "http://www.uts.edu.au/31284/oms")
 public class Order implements Serializable {
     @XmlElement (name = "id")
-    private String id;
+    private int id;
     @XmlElement (name = "movie")
     private ArrayList<Movie> movies = new ArrayList<Movie>();
     @XmlElement(name = "name")
@@ -22,14 +22,14 @@ public class Order implements Serializable {
     @XmlElement (name = "paymentmethod")
     private String paymentmethod;
     @XmlElement (name = "saletotal")
-    private String saletotal;
+    private double saletotal;
     @XmlElement (name = "status")
     private String status;
  
     
 public Order() {}
 
-public Order(String id, ArrayList<Movie> movies, String name, String email, String paymentmethod, String saletotal, String status){
+public Order(int id, ArrayList<Movie> movies, String name, String email, String paymentmethod, double saletotal, String status){
     this.id = id;
     this.movies = movies;
     this.name = name;
@@ -38,12 +38,12 @@ public Order(String id, ArrayList<Movie> movies, String name, String email, Stri
     this.status = status;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = (new Random().nextInt(999))+"";
+    public void setId(int id) {
+        this.id = (new Random().nextInt(999));
     }
 
     public ArrayList<Movie> getMovies() {
@@ -78,11 +78,11 @@ public Order(String id, ArrayList<Movie> movies, String name, String email, Stri
         this.paymentmethod = paymentmethod;
     }
 
-    public String getSaletotal() {
+    public double getSaletotal() {
         return saletotal;
     }
 
-    public void setSaletotal(String saletotal) {
+    public void setSaletotal(double saletotal) {
         this.saletotal = saletotal;
     }
 

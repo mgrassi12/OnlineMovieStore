@@ -44,7 +44,7 @@ public class OrderService {
     public Orders getOrders() throws IOException, Exception {
         return getOrderApp().getOrders();
     }
-
+ 
     @Path("orders/email={email}")
     @GET
     @Produces(MediaType.TEXT_XML)
@@ -55,7 +55,7 @@ public class OrderService {
         @Path("orders/id={id}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Order getOrderId(@PathParam("id") String id) throws JAXBException, IOException, Exception{
+    public Order getOrderId(@PathParam("id") int id) throws JAXBException, IOException, Exception{
         return getOrderApp().getOrders().checkId(id);
     }
 

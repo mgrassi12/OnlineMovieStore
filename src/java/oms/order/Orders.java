@@ -27,9 +27,9 @@ public class Orders implements Serializable {
         historylist.remove(order);
     }
 
-    public Order checkId(String id) {
+    public Order checkId(int id) {
         for (Order order : historylist) {
-            if (order.getId().equals(id)) {
+            if (order.getId() == id) {
                 return order;
             }
         }
