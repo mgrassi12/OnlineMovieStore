@@ -13,10 +13,8 @@
             <price>15</price>
             <purchased>1</purchased>
         </movie>
-        <user>
-            <name>Bobby James</name>
-            <email>bobbyjames@gmail.com</email>
-        </user>
+        <name>Bobby James</name>
+        <email>bobbyjames@gmail.com</email>
         <paymentmethod>card</paymentmethod>
         <saletotal>15</saletotal>
         <status>submitted</status>
@@ -30,10 +28,8 @@
             <price>15</price>
             <purchased>1</purchased>
         </movie>
-        <user>
-            <name>Jeff Jefferson</name>
-            <email>jeff@jeffery.com</email>
-        </user>
+        <name>Jeff Jefferson</name>
+        <email>jeff@jeffery.com</email>
         <paymentmethod>card</paymentmethod>
         <saletotal>15</saletotal>
         <status>cancelled</status>

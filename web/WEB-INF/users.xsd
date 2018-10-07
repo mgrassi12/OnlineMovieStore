@@ -38,6 +38,17 @@
                             <xs:element name="password" type="xs:string"/>
                             <xs:element name="phone" type="phone"/>
                             <xs:element name="address" type="xs:string"/>
+                            <xs:element name="movie" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="title" type="xs:string"/>
+                                        <xs:element name="genre" type="xs:string"/>
+                                        <xs:element name="releasedate" type="xs:string"/>
+                                        <xs:element name="price" type="xs:integer"/>
+                                        <xs:element name="purchased" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

@@ -21,7 +21,7 @@
     <form action="registeraction.jsp" method="post">
         <table>
             <tr><td>Full Name</td><td><input size="32"type="text" name="name" required></td><td><%=(nameErr != null ? nameErr : "")%></td></tr>
-            <tr><td>Email</td><td><input size="32" type="email" name="email" required></td><td><%=(emailErr != null ? emailErr : "")%></td></tr>
+            <tr><td>Email</td><td><input size="32" type="text" name="email" required></td><td><%=(emailErr != null ? emailErr : "")%></td></tr>
             <tr><td>Password</td><td><input size="32" type="password" name="password" required></td><td><%=(passwordErr != null ? passwordErr : "")%></td></tr>
             <tr><td>Phone Number</td><td><input size="16" type="tel" name="phone" required></td></tr>
             <tr><td>Address</td><td><input size="64" type="text" name="address" required></td></tr>

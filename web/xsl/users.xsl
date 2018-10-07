@@ -48,6 +48,22 @@
             <td>
                 <xsl:value-of select="nsm:address" />
             </td>
+            <td>
+                <table width = "50%" border="1">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Release Date</th>
+                            <th>Price</th>
+                            <th>Purchased</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:apply-templates select="nsm:movie"/>
+                    </tbody>
+                </table>
+            </td>
         </tr>
     </xsl:template>
     

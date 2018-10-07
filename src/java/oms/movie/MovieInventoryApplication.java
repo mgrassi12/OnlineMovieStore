@@ -2,9 +2,11 @@ package oms.movie;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class MovieInventoryApplication {
@@ -30,5 +32,16 @@ public class MovieInventoryApplication {
 
     public void setMovies(Movies movies) {
         this.movies = movies;
-    }        
+    }
+    
+    public void updateXML(Movies movies, String filePath) throws Exception {
+        this.movies = movies;
+        this.filePath = filePath;
+        JAXBContext jc = JAXBContext.newInstance(Movies.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        FileOutputStream fout = new FileOutputStream(filePath);
+        m.marshal(movies, fout);
+        fout.close();
+    }
 }

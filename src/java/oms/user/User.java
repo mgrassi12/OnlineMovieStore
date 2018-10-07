@@ -1,10 +1,12 @@
 package oms.user;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import oms.movie.Movie;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user", namespace = "http://www.uts.edu.au/31284/oms")
@@ -19,6 +21,8 @@ public class User implements Serializable {
     private String phone;
     @XmlElement(name = "address")
     private String address;
+    @XmlElement(name = "movie")
+    private ArrayList<Movie> movies = new ArrayList<Movie>();
     
     public User() {}
 
@@ -28,6 +32,7 @@ public class User implements Serializable {
         this.password = password;
         this.phone = phone;
         this.address = address;
+        this.movies = new ArrayList<Movie>();
     }
     
     public void updateUser(String name, String email, String password, String phone, String address) {
@@ -76,5 +81,21 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(ArrayList<Movie> movies) {
+        this.movies = movies;
+    }
+    
+    public void addToCart(Movie movie) {
+        this.movies.add(movie);
+    }
+    
+    public void removeFromCart(Movie movie) {
+        this.movies.remove(movie);
     }
 }

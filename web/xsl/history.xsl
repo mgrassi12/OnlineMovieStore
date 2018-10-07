@@ -9,13 +9,17 @@
             </head>     
             <body>
                 <h1>History</h1>
-                <xsl:apply-templates />
+                <xsl:apply-templates/>
             </body>
         </html>
     </xsl:template>
     
     <xsl:template match="nsm:order">
         <h2>Order ID: <xsl:value-of select="nsm:id"/></h2>
+        <h3>Ordered by: <xsl:value-of select="nsm:name"/> 
+            <br></br>
+            <xsl:value-of select="nsm:email"/>
+        </h3>
         <table width = "50%" border="1">
             <thead>
                 <tr>
@@ -27,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <xsl:apply-templates />
+                <xsl:apply-templates select="nsm:movie"/>
             </tbody>
         </table>
         <p>Payment method: <xsl:value-of select="nsm:paymentmethod"/></p>
@@ -35,7 +39,7 @@
         <p>Order status: <xsl:value-of select="nsm:status"/></p>
     </xsl:template>
     
-    <xsl:template match="nsm:order/nsm:movie">
+    <xsl:template match="nsm:movie">
         <tr>
             <td>
                 <xsl:value-of select="nsm:title"/>

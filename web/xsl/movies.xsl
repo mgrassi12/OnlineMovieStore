@@ -38,7 +38,7 @@
             <td>
                 <a>
                     <xsl:attribute name="href">
-                        <xsl:text>confirm.jsp?selectedmovie=</xsl:text>
+                        <xsl:text>addtocartaction.jsp?selectedmovie=</xsl:text>
                         <xsl:value-of select="nsm:title"/>
                     </xsl:attribute>
                     <xsl:value-of select="nsm:title"/>
