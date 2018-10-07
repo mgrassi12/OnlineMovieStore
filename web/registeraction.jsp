@@ -28,16 +28,19 @@
         movieStoreApp.setUsers(users);
         if (users.checkEmail("email") != null) {
             response.sendRedirect("register.jsp");
-            session.setAttribute("existErr", "User is already registered!");
+            session.setAttribute("existError", "User is already registered!");
         } else {
             if (!validator.validateName(name)) {
-                session.setAttribute("nameErr", "Incorrect name format");
+                session.setAttribute("nameError", "Incorrect name format");
                 response.sendRedirect("register.jsp");
             } else if (!validator.validateEmail(email)) {
-                session.setAttribute("emailErr", "Incorrect email format");
+                session.setAttribute("emailError", "Incorrect email format");
                 response.sendRedirect("register.jsp");
             } else if (!validator.validatePassword(password)) {
-                session.setAttribute("passwordErr", "Incorrect password format");
+                session.setAttribute("passwordError", "Incorrect password format");
+                response.sendRedirect("register.jsp");
+            } else if (!validator.validatePhone(phone)) {
+                session.setAttribute("phoneError", "Incorrect phone format");
                 response.sendRedirect("register.jsp");
             } else {
                 users.addUser(user);

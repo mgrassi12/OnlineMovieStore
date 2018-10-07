@@ -23,16 +23,16 @@
         Validator validator = new Validator();
 
         if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Incorrect email format");
+            session.setAttribute("emailError", "Incorrect email format");
             response.sendRedirect("login.jsp");
         } else if (!validator.validatePassword(password)) {
-            session.setAttribute("passwordErr", "Incorrect password format");
+            session.setAttribute("passwordError", "Incorrect password format");
             response.sendRedirect("login.jsp");
         } else if (user != null) {
             session.setAttribute("user", user);
             response.sendRedirect("main.jsp");
         } else {
-            session.setAttribute("existErr", "User does not exist!");
+            session.setAttribute("existError", "User does not exist!");
             response.sendRedirect("login.jsp");
         }
     %>

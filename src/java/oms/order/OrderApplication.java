@@ -4,33 +4,42 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class OrderApplication {
+public class OrderApplication implements Serializable {
+
     private String filePath;
     private Orders orders;
 
-    public String getFilePath() {
-        return filePath;
+    public OrderApplication() {
+
     }
 
-    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {        
+    public OrderApplication(String filePath, Orders orders) {
+        super();
+        this.filePath = filePath;
+        this.orders = orders;
+
+    }
+    
+    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
         JAXBContext jc = JAXBContext.newInstance(Orders.class);
         Unmarshaller u = jc.createUnmarshaller();
         this.filePath = filePath;
         FileInputStream fin = new FileInputStream(filePath);
-        orders = (Orders)u.unmarshal(fin);
+        orders = (Orders) u.unmarshal(fin);
         fin.close();
     }
-
-    public Orders getOrders() {
+    
+    public Orders getOrders(){
         return orders;
     }
-
-    public void setOrders(Orders orders) {
+    
+    public void setOrders(Orders orders){
         this.orders = orders;
     }
     
