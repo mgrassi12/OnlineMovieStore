@@ -16,15 +16,15 @@
         String nameError = (String) session.getAttribute("nameError");
         String phoneError = (String) session.getAttribute("phoneError");
     %>
-    <table>
-        <tr><td><h1>Register</h1></td> <td><%=(existError != null ? existError : "")%> </td></tr>
-    </table>
+    <h1>Register</h1>
+    <p class="aligncenter"><%=(existError != null ? existError : "")%></p>
+    <jsp:include page="loginstatus.jsp"/>
     <form action="registeraction.jsp" method="post">
         <table>
-            <tr><td>Full Name</td><td><input size="32"type="text" name="name" required></td><td><%=(nameError != null ? nameError : "")%></td></tr>
-            <tr><td>Email</td><td><input size="32" type="text" name="email" required></td><td><%=(emailError != null ? emailError : "")%></td></tr>
-            <tr><td>Password</td><td><input size="32" type="password" name="password" required></td><td><%=(passwordError != null ? passwordError : "")%></td></tr>
-            <tr><td>Phone Number</td><td><input size="16" type="text" name="phone" required></td><td><%=(phoneError != null ? phoneError : "")%></td></tr>
+            <tr><td>Full Name</td><td><input size="32"type="text" name="name" required></td><td></td></tr>
+            <tr><td>Email</td><td><input size="32" type="text" name="email" required></td><td></td></tr>
+            <tr><td>Password</td><td><input size="32" type="password" name="password" required></td><td></td></tr>
+            <tr><td>Phone Number</td><td><input size="16" type="text" name="phone" required></td><td></td></tr>
             <tr><td>Address</td><td><input size="64" type="text" name="address" required></td></tr>
             <tr><td></td><td><input type="submit" value="Register"> </td></tr>
         </table>
@@ -35,6 +35,12 @@
         }
         session.invalidate();
     %>
+    <br>
+    <%=(nameError != null ? nameError : "")%>
+    <%=(emailError != null ? emailError : "")%>
+    <%=(passwordError != null ? passwordError : "")%>
+    <%=(phoneError != null ? phoneError : "")%>
+    <br>
     <p>Already have an account? Click <a href="login.jsp">here</a>.</p>
 </body>
 </html>

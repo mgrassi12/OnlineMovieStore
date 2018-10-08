@@ -18,6 +18,9 @@
                response.sendRedirect("login.jsp");
             }
         %>
+        <h1>Main page</h1>
+        <jsp:include page="loginstatus.jsp"/>
+        <h2>Welcome, <%=user.getName()%></h2>
         <p>Click <a href="account.jsp">here</a> to update your account information.</p>
         <p>Click <a href="index.jsp">here</a> to view our movie inventory.</p>
     </body>

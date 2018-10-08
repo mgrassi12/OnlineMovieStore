@@ -14,13 +14,13 @@
         String emailError = (String) session.getAttribute("emailError");
         String passwordError = (String) session.getAttribute("passwordError");
     %>
-    <table>
-        <tr><td><h1>Login</h1></td> <td><%=(existError != null ? existError : "")%> </td></tr>
-    </table>
+    <h1>Login</h1>
+    <p class="aligncenter"></p>
+    <jsp:include page="loginstatus.jsp"/>
     <form action="loginaction.jsp" method="POST">
         <table>
-            <tr><td>Email</td><td><input type="text" name="email" required</td><td><%=(emailError != null ? emailError : "")%></td></tr>
-            <tr><td>Password</td><td><input type="password" name="password" required </td><td><%=(passwordError != null ? passwordError : "")%></td></tr>
+            <tr><td>Email</td><td><input type="text" name="email" required</td><td></td></tr>
+            <tr><td>Password</td><td><input type="password" name="password" required </td><td></td></tr>
             <tr><td></td><td><input type="submit" value="Login"></td></tr>
         </table>
     </form>
@@ -30,6 +30,11 @@
         }
         session.invalidate();
     %>
+    <br>
+    <%=(existError != null ? existError : "")%>
+    <%=(emailError != null ? emailError : "")%>
+    <%=(passwordError != null ? passwordError : "")%>
+    <br>
     <p>Don't have an account? Click <a href="register.jsp">here</a>.</p>
 
 </body>

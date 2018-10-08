@@ -10,6 +10,8 @@
     
     <body class = "body">
         <% session.invalidate(); %>
+        <h1>Logout</h1>
+        <jsp:include page="loginstatus.jsp"/>
         <p>You have been logged out. Click <a href="index.jsp">here</a> to return to the index page.</p>
     </body>
 </html>

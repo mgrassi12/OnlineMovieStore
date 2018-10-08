@@ -16,18 +16,12 @@
 </head>
 
 <%
-    String log;
-    String msg;
     ArrayList<Movie> cart = new ArrayList<Movie>();
     User user = (User) session.getAttribute("user");
 
     if (user != null) {
-        log = user.getName() + " &lt " + user.getEmail() + " &gt";
-        msg = "You are logged in as " + log + ".";
         cart = user.getMovies();
     } else {
-        log = "";
-        msg = "You are not logged in.";
         cart = (ArrayList<Movie>) session.getAttribute("cart");
     }
     
@@ -38,12 +32,7 @@
 
 <body class = "body">
     <h1>Your checkout cart</h1>
-    <div style="color: black; background: #eee; border: solid 1px #333; text-align: right; width: 100%;"><%=msg%></div>
-    <% if (user != null) { %>
-    <div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="main.jsp">Account</a>.</div>
-    <% } else { %>
-    <div style="text-align: right;"><a href="register.jsp">Register</a> or <a href="login.jsp">Login</a> if you already have an account.</div>
-    <% } %>
+    <jsp:include page="loginstatus.jsp"/>
         
     <c:set var = "xmltext"> 
         <movies xmlns="http://www.uts.edu.au/31284/oms"
