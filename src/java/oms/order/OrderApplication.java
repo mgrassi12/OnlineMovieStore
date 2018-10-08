@@ -39,8 +39,9 @@ public class OrderApplication implements Serializable {
         return orders;
     }
     
-    public void setOrders(Orders orders){
+    public void setOrders(Orders orders) throws Exception{
         this.orders = orders;
+        updateXML(this.orders, this.filePath);
     }
     
     public void updateXML(Orders orders, String filePath) throws Exception {

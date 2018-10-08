@@ -17,6 +17,8 @@ public class Movie implements Serializable {
     private double price;
     @XmlElement(name = "availablecopies")
     private int availablecopies;
+    @XmlElement(name = "purchased")
+    private int purchased;
     
     public Movie() {}
     
@@ -26,6 +28,7 @@ public class Movie implements Serializable {
         this.releasedate = releasedate;
         this.price = price;
         this.availablecopies = availablecopies;
+        this.purchased = 0;
     }
     
     public void updateMovie(String title, String genre, String releasedate, double price, int availablecopies) {
@@ -93,5 +96,13 @@ public class Movie implements Serializable {
         String title_1 = this.title.toLowerCase().trim();
         String title_2 = title2.toLowerCase().trim();
         return title_1.equals(title_2);
+    }
+
+    public int getPurchased() {
+        return purchased;
+    }
+
+    public void setPurchased(int purchased) {
+        this.purchased = purchased;
     }
 }

@@ -20,7 +20,7 @@
         %>
 
         <h1>Update Account Information</h1>
-
+        <jsp:include page="loginstatus.jsp"/>
         <form action="account.jsp" method="POST">
 
             <table>
@@ -40,7 +40,7 @@
             }
         %>
         </form>    
-        <p>Return to the <a href="main.jsp">Main Account Page</a>.</p>
-        <p>Click on the period at the end of this sentence if you would like to delete your account <a href="deleteaction.jsp">.</a></p>
+        <p>Click <a href="main.jsp">here</a> to return to the Main Account Page</a>.</p>
+        <p>Click <a href="deleteaction.jsp">here</a> if you would like to delete your account.</p>
     </body>
 </html>

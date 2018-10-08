@@ -25,7 +25,6 @@
         User user = new User(name, email, password, phone, address);
         Validator validator = new Validator();
 
-        movieStoreApp.setUsers(users);
         if (users.checkEmail("email") != null) {
             response.sendRedirect("register.jsp");
             session.setAttribute("existError", "User is already registered!");
@@ -45,6 +44,7 @@
             } else {
                 users.addUser(user);
                 session.setAttribute("user", user);
+                movieStoreApp.setUsers(users);
                 response.sendRedirect("main.jsp");
             }
         }%>

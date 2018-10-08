@@ -33,6 +33,7 @@ public Order(int id, ArrayList<Movie> movies, String name, String email, String 
     this.id = id;
     this.movies = movies;
     this.name = name;
+    this.email = email;
     this.paymentmethod = paymentmethod;
     this.saletotal = saletotal;
     this.status = status;

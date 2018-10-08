@@ -32,6 +32,8 @@
     }
     
     Set<Movie> cartwithoutduplicates = new HashSet<Movie>(cart);
+    session.setAttribute("orderwithoutduplicates", cartwithoutduplicates);
+    session.setAttribute("order", cart);
 %>
 
 <body class = "body">
@@ -61,8 +63,9 @@
 
     <c:import url = "<%= xslPath%>" var = "xslt"/>
     <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
-    <p><a href="clearcartaction.jsp?previouspage=checkout.jsp">Clear cart</a><br>
-       <a href="index.jsp">Continue shopping</a><br>
-       <a href="checkoutaction.jsp">Finalize order</a></p>
+    <p><% if(cartwithoutduplicates.size() > 0){ %>
+        <a href="clearcartaction.jsp?previouspage=checkout.jsp">Clear cart</a><br>
+       <a href="checkoutfinalize.jsp">Finalize order</a><% } %><br>
+       <a href="index.jsp">Continue shopping</a></p>
     </body>
 </html>
