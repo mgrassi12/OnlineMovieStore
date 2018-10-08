@@ -45,7 +45,7 @@
         }
         
         while(sentinel != 1){
-            id = (rand.nextInt(8998) + 1001);
+            id = (rand.nextInt(898) + 101);
             if(orders.checkId(id) == null){
                 sentinel = 1;
             }

@@ -33,14 +33,16 @@
     <movies xmlns="http://www.uts.edu.au/31284/oms"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://www.uts.edu.au/31284/oms movies.xsd">
-        <% for (Movie movie : matches) {%>
-        <movie>
-            <title><%= movie.getTitle()%></title>
-            <genre><%= movie.getGenre()%></genre>
-            <releasedate><%= movie.getReleasedate()%></releasedate>
-            <price>$<%= movie.getPrice()%></price>
-            <availablecopies><%= movie.getAvailablecopies()%></availablecopies>
-        </movie>
+        <% for (Movie movie : matches) { %>
+            <% if(movie.getAvailablecopies() > 0) { %>
+                <movie>
+                    <title><%= movie.getTitle()%></title>
+                    <genre><%= movie.getGenre()%></genre>
+                    <releasedate><%= movie.getReleasedate()%></releasedate>
+                    <price>$<%= movie.getPrice()%></price>
+                    <availablecopies><%= movie.getAvailablecopies()%></availablecopies>
+                </movie>
+            <%}%>
         <%}%>
     </movies>
 </c:set>
