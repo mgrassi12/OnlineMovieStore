@@ -7,7 +7,7 @@
             <head>
                 <link rel="stylesheet" href="blockbuster.css" type="text/css"></link>
             </head>     
-            <body>
+            <body class="aligncenter">
                 <h1>Users</h1>
                 <xsl:apply-templates />
             </body>

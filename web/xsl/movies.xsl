@@ -7,7 +7,7 @@
             <head>
                 <link rel="stylesheet" href="blockbuster.css" type="text/css"></link>
             </head>     
-            <body>
+            <body class="aligncenter">
                 <h1>Movies</h1>
                 <xsl:apply-templates />
             </body>
@@ -16,7 +16,7 @@
 
     <xsl:template match="nsm:movies" >
         <form action="confirm.jsp" method="post">
-            <table width = "100%">
+            <table class="aligncenter">
                 <thead>
                     <tr>
                         <th>Title</th>
