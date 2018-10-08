@@ -1,4 +1,4 @@
-<%@page import="oms.movie.*" import="java.util.*" %>
+<%@page import="oms.movie.*" import="java.util.*" import="oms.validator.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
@@ -9,7 +9,32 @@
     <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
 
-<%
+<% String search = request.getParameter("search");
+   String searchparam = request.getParameter("searchparam");
+   Validator validator = new Validator();
+    /**if (search != null & searchparam != null) {
+                        if (request.getParameter(searchparam).equals("Title")) {
+                            if (!validator.validateTitle(search)) {
+                                session.setAttribute("titleError", "Incorrect title format");
+                                response.sendRedirect("index.jsp");
+                            }
+                        }
+
+                        if (request.getParameter(searchparam).equals("Genre")) {
+                            if (!validator.validatePassword(search)) {
+                                session.setAttribute("genreError", "Incorrect genre format");
+                                response.sendRedirect("index.jsp");
+
+                            }
+                        }
+                        if (request.getParameter(searchparam).equals("Years")) {
+                            if (!validator.validatePassword(search)) {
+                                session.setAttribute("dateError", "Incorrect date format");
+                                response.sendRedirect("index.jsp");
+                            }
+                        }
+    }
+    else { */
     ArrayList<Movie> matches = new ArrayList<Movie>();
     Movies movies = movieApp.getMovies();
     if (request.getParameter("search").equals("showall")) {
