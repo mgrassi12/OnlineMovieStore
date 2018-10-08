@@ -46,7 +46,7 @@
                 <xsl:value-of select="nsm:releasedate" />
             </td>
             <td>
-                <xsl:value-of select="nsm:price" />
+                <xsl:value-of select="nsm:price" /> each
             </td>
             <td>
                 <xsl:value-of select="nsm:quantity" />
