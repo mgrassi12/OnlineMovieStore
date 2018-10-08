@@ -8,7 +8,7 @@
 <html>
     <head class = "header">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Order cancelled</title>
+        <title>All orders cancelled</title>
         <link rel="stylesheet" type="text/css" href="blockbuster.css">
     <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
 </head>
@@ -24,26 +24,28 @@
     </jsp:useBean>
     <% 
         Orders orders = orderApp.getOrders();
-        int orderid = Integer.parseInt(request.getParameter("orderid"));
-        Order order = orders.checkId(orderid);
-        if(order.getStatus() == "Submitted"){
-            orders.removeOrder(order);
-            order.setStatus("Cancelled");        
-            orders.addOrder(order);
-            orderApp.setOrders(orders);
+        String email = request.getParameter("email");
+        ArrayList<Order> userorders = orders.checkEmail(email);
+        for (Order order : userorders){
+            if(order.getStatus() == "Submitted"){
+                orders.removeOrder(order);
+                order.setStatus("Cancelled");        
+                orders.addOrder(order);
+                orderApp.setOrders(orders);
 
-            ArrayList<Movie> affected_movies = order.getMovies();
-            Movies all_movies = movieApp.getMovies();
-            for (Movie movie : affected_movies){
-                Movie matched_movie = all_movies.getTitleMatches(movie.getTitle()).get(0);
-                int currentcopies = matched_movie.getAvailablecopies();
-                all_movies.removeMovie(matched_movie);
-                matched_movie.setAvailablecopies(currentcopies + movie.getPurchased());
-                all_movies.addMovie(matched_movie);
+                ArrayList<Movie> affected_movies = order.getMovies();
+                Movies all_movies = movieApp.getMovies();
+                for (Movie movie : affected_movies){
+                    Movie matched_movie = all_movies.getTitleMatches(movie.getTitle()).get(0);
+                    int currentcopies = matched_movie.getAvailablecopies();
+                    all_movies.removeMovie(matched_movie);
+                    matched_movie.setAvailablecopies(currentcopies + movie.getPurchased());
+                    all_movies.addMovie(matched_movie);
+                }
+                movieApp.setMovies(all_movies);
             }
-            movieApp.setMovies(all_movies);
         }
-        response.sendRedirect("main.jsp");
+        response.sendRedirect("index.jsp");
     %>
 </body>
 </html>

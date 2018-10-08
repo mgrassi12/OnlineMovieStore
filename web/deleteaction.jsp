@@ -16,11 +16,12 @@
         
         <%
             User user = (User) session.getAttribute("user");
+            String email = user.getEmail();
             Users users = movieStoreApp.getUsers();
             session.invalidate();
             users.removeUser(user);
             movieStoreApp.setUsers(users);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("cancelallordersaction.jsp?email=" + email);
         %>
     </body>
 </html>

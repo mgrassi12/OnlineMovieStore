@@ -10,14 +10,14 @@
             <title>Oceans Eight</title>
             <genre>Action</genre>
             <releasedate>07-06-2018</releasedate>
-            <price>15</price>
+            <price>15.0</price>
             <purchased>1</purchased>
         </movie>
         <name>Bobby James</name>
         <email>bobbyjames@gmail.com</email>
-        <paymentmethod>card</paymentmethod>
-        <saletotal>15</saletotal>
-        <status>submitted</status>
+        <paymentmethod>Credit Card</paymentmethod>
+        <saletotal>15.0</saletotal>
+        <status>Submitted</status>
     </order>
     <order> 
         <id>456</id>
@@ -25,13 +25,13 @@
             <title>Avengers Infinity War</title>
             <genre>Action</genre>
             <releasedate>25-04-2018</releasedate>
-            <price>15</price>
+            <price>15.0</price>
             <purchased>1</purchased>
         </movie>
         <name>Jeff Jefferson</name>
         <email>jeff@jeffery.com</email>
-        <paymentmethod>card</paymentmethod>
-        <saletotal>15</saletotal>
-        <status>cancelled</status>
+        <paymentmethod>PayPal</paymentmethod>
+        <saletotal>15.0</saletotal>
+        <status>Cancelled</status>
     </order>
 </history>
