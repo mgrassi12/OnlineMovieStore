@@ -36,33 +36,36 @@ public class Orders implements Serializable {
         return null;
     }
 
-    public Order checkEmail(String email) {
+    public ArrayList<Order> checkEmail(String email) {
+        ArrayList<Order> matches = new ArrayList<>();
         for (Order order : historylist) {
             if (order.getEmail().equals(email)) {
-                return order;
+                matches.add(order);
             }
         }
-        return null;
+        return matches;
     }
 
-    public Order checkTitle(String title) {
+    public ArrayList<Order> checkTitle(String title) {
+        ArrayList<Order> matches = new ArrayList<>();
         for (Order order : historylist) {
             for (Movie movie : order.getMovies()){
                 if (movie.getTitle().equals(title)) {
-                    return order;
+                    matches.add(order);
                 }
             }
         }
-        return null;
+        return matches;
     }
 
-    public Order checkStatus(String status) {
+    public ArrayList<Order> checkStatus(String status) {
+        ArrayList<Order> matches = new ArrayList<>();
         for (Order order : historylist) {
             if (order.getEmail().equals(status)) {
-                return order;
+                matches.add(order);
             }
         }
-        return null;
+        return matches;
     }
 
 }

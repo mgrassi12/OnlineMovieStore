@@ -6,6 +6,7 @@
 package oms.rest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -13,7 +14,6 @@ import javax.xml.bind.JAXBException;
 import oms.order.Order;
 import oms.order.OrderApplication;
 import oms.order.Orders;
-import oms.user.*;
 
 /**
  *
@@ -48,7 +48,7 @@ public class OrderService {
     @Path("orders/email={email}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Order getOrderEmail(@PathParam("email") String email) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderEmail(@PathParam("email") String email) throws JAXBException, IOException, Exception{
         return getOrderApp().getOrders().checkEmail(email);
     }
 
@@ -62,19 +62,14 @@ public class OrderService {
         @Path("orders/title={title}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Order getOrderTitle(@PathParam("title") String title) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderTitle(@PathParam("title") String title) throws JAXBException, IOException, Exception{
         return getOrderApp().getOrders().checkTitle(title);
     }
 
         @Path("orders/status={status}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Order getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException, Exception{
         return getOrderApp().getOrders().checkStatus(status);
     }
 }
-
-
-// Movie Title function
-// Order Status function
-
