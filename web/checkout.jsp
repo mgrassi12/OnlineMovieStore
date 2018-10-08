@@ -53,7 +53,7 @@
                 <genre><%= movie.getGenre()%></genre>
                 <releasedate><%= movie.getReleasedate()%></releasedate>
                 <price>$<%= movie.getPrice()%></price>
-                <quantity><%= Collections.frequency(cart, movie) %></quantity>
+                <quantity><%= Collections.frequency(cart, movie) %> reserved / <%= movie.getAvailablecopies() %> more available </quantity>
             </movie>
             <%}%>
         </movies>
@@ -61,7 +61,7 @@
 
     <c:import url = "<%= xslPath%>" var = "xslt"/>
     <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
-    <p><a href="clearcartaction.jsp">Clear cart</a><br>
+    <p><a href="clearcartaction.jsp?previouspage=checkout.jsp">Clear cart</a><br>
        <a href="index.jsp">Continue shopping</a><br>
        <a href="checkoutaction.jsp">Finalize order</a></p>
     </body>

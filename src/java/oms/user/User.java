@@ -98,4 +98,8 @@ public class User implements Serializable {
     public void removeFromCart(Movie movie) {
         this.movies.remove(movie);
     }
+    
+    public void clearCart() {
+        this.movies.clear();
+    }
 }

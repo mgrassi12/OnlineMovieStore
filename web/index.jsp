@@ -1,4 +1,6 @@
 <%@page language="java" import="oms.user.User" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="oms.movie.Movie"%>
 
 <!DOCTYPE html>
 <html>
@@ -29,8 +31,12 @@
     <% if (user != null) { %>
     <div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="main.jsp">Account</a>.</div>
     <% } else { %>
-    <div style="text-align: right;"><a href="register.jsp">Register</a> or <a href="login.jsp">Login</a> if you already have an account.</div>
+    <div style="text-align: right;"><a href="clearcartaction.jsp?previouspage=register.jsp">Register</a> or <a href="clearcartaction.jsp?previouspage=login.jsp">Login</a> if you already have an account.</div>
     <% } %>
+    <% ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
+           if(cart != null){ %>
+    <a href="checkout.jsp"> View cart </a>
+    <%       } %>
 
     <div>
         <table class="aligncenter">

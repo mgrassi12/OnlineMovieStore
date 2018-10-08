@@ -5,7 +5,7 @@
 <html>
     <head class = "header">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Adding movie to cart</title>
+        <title>Removing movie from cart</title>
         <link rel="stylesheet" type="text/css" href="blockbuster.css">
     <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
 </head>
@@ -22,17 +22,14 @@
        Movies movies = movieApp.getMovies();
        movie = movies.getTitleMatches(selectedmovie).get(0);
        if(user != null){
-           user.addToCart(movie);
+           user.removeFromCart(movie);
        } else {
            ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
-           if(cart == null){
-               cart = new ArrayList<Movie>();
-           }
-           cart.add(movie);
+           cart.remove(movie);
            session.setAttribute("cart", cart);
        }
        movies.removeMovie(movie);
-       movie.setAvailablecopies(movie.getAvailablecopies()-1);
+       movie.setAvailablecopies(movie.getAvailablecopies()+1);
        movies.addMovie(movie);
        movieApp.setMovies(movies);
        response.sendRedirect("checkout.jsp");

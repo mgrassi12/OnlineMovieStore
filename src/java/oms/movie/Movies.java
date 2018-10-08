@@ -17,6 +17,11 @@ public class Movies implements Serializable {
     public ArrayList<Movie> getList() {
         return list;
     }
+
+    public void setList(ArrayList<Movie> list) {
+        this.list = list;
+    }
+    
     public void addMovie(Movie movie) {
         list.add(movie);
     }

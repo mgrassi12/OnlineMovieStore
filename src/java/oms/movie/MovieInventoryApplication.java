@@ -30,8 +30,9 @@ public class MovieInventoryApplication {
         return movies;
     }
 
-    public void setMovies(Movies movies) {
+    public void setMovies(Movies movies) throws Exception {
         this.movies = movies;
+        updateXML(this.movies, this.filePath);
     }
     
     public void updateXML(Movies movies, String filePath) throws Exception {
