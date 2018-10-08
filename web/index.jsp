@@ -34,7 +34,7 @@
     <div style="text-align: right;"><a href="clearcartaction.jsp?previouspage=register.jsp">Register</a> or <a href="clearcartaction.jsp?previouspage=login.jsp">Login</a> if you already have an account.</div>
     <% } %>
     <% ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
-           if(cart != null){ %>
+           if((cart != null)|| (user != null)){ %>
     <a href="checkout.jsp"> View cart </a>
     <%       } %>
 

@@ -22,27 +22,30 @@
        String previouspage = request.getParameter("previouspage");
        User user = (User) session.getAttribute("user");
        
-       if(user != null){
-           cart_movies = (ArrayList) user.getMovies().clone();
-           user.clearCart();
-       } else {
-           cart_movies = (ArrayList) cart.clone();
-           cart.clear();
-           session.setAttribute("cart", cart);
+       if((user != null) || (cart!=null)){
+            if(user != null){
+                cart_movies = (ArrayList) user.getMovies().clone();
+                user.clearCart();
+            } else {
+                cart_movies = (ArrayList) cart.clone();
+                cart.clear();
+                session.setAttribute("cart", cart);
+            }
+
+            for (Movie movie : cart_movies){
+                all_movies.removeMovie(movie);
+                movie.setAvailablecopies(movie.getAvailablecopies()+1);  
+            }
+
+            for (Movie movie : cart_movies){
+                if((all_movies.getList().contains(movie)) == false){
+                     all_movies.addMovie(movie); 
+                }         
+            }
+
+            movieApp.setMovies(all_movies);
        }
        
-       for (Movie movie : cart_movies){
-           all_movies.removeMovie(movie);
-           movie.setAvailablecopies(movie.getAvailablecopies()+1);  
-       }
-       
-       for (Movie movie : cart_movies){
-           if((all_movies.getList().contains(movie)) == false){
-                all_movies.addMovie(movie); 
-           }         
-       }
-       
-       movieApp.setMovies(all_movies);
        response.sendRedirect(previouspage);
     %>
 </body>
