@@ -1,5 +1,5 @@
 <%@page language="java" import="oms.user.User" contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
 <%@page import="oms.movie.Movie"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
@@ -8,7 +8,7 @@
 <html>
     <head class = "header">
         <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
-        <% String xslPath = "file:///" + application.getRealPath("xsl/movies.xsl");%>
+        <% String xslPath = "file:///" + application.getRealPath("xsl/moviescart.xsl");%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Checkout</title>
         <link rel="stylesheet" type="text/css" href="blockbuster.css">
@@ -30,6 +30,8 @@
         msg = "You are not logged in.";
         cart = (ArrayList<Movie>) session.getAttribute("cart");
     }
+    
+    Set<Movie> cartwithoutduplicates = new HashSet<Movie>(cart);
 %>
 
 <body class = "body">
@@ -44,14 +46,14 @@
     <c:set var = "xmltext"> 
         <movies xmlns="http://www.uts.edu.au/31284/oms"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.uts.edu.au/31284/oms movies.xsd">
-            <% for (Movie movie : cart) {%>
+                xsi:schemaLocation="http://www.uts.edu.au/31284/oms moviescart.xsd">
+            <% for (Movie movie : cartwithoutduplicates) {%>
             <movie>
                 <title><%= movie.getTitle()%></title>
                 <genre><%= movie.getGenre()%></genre>
                 <releasedate><%= movie.getReleasedate()%></releasedate>
                 <price>$<%= movie.getPrice()%></price>
-                <availablecopies>1</availablecopies>
+                <quantity><%= Collections.frequency(cart, movie) %></quantity>
             </movie>
             <%}%>
         </movies>
@@ -59,10 +61,8 @@
 
     <c:import url = "<%= xslPath%>" var = "xslt"/>
     <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
-    
-        <p>Please select the confirm button if you would like to proceed</p>
-        <form action="checkout.jsp">
-            <input type="submit" value="Submit">
-        </form>
+    <p><a href="clearcartaction.jsp">Clear cart</a><br>
+       <a href="index.jsp">Continue shopping</a><br>
+       <a href="checkoutaction.jsp">Finalize order</a></p>
     </body>
 </html>
