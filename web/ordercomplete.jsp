@@ -20,6 +20,7 @@
     </head>
     
     <body class = "body">
+        <jsp:include page="loginstatus.jsp"/>
         <%
             int lastorderid = (Integer) session.getAttribute("lastorderid");
             Orders orders = orderApp.getOrders();

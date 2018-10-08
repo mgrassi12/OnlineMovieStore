@@ -10,6 +10,7 @@
 </head>
 
 <body class = "body">
+    <jsp:include page="loginstatus.jsp"/>
     <%  
         User user = (User) session.getAttribute("user");
         String email = new String();
