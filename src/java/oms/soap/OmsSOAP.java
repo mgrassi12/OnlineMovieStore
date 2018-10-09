@@ -75,8 +75,8 @@ public class OmsSOAP {
     }
     
     @WebMethod //return all Orders
-    public Orders fetchOrders() throws JAXBException, IOException, Exception {
-        return getOrderApp().getOrders();
+    public ArrayList<Order> fetchOrders() throws JAXBException, IOException, Exception {
+        return getOrderApp().getOrders().getHistoryList();
     }
     
     @WebMethod //return Order based on Email

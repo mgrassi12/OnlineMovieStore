@@ -7,11 +7,11 @@
 <xsd:import namespace="http://soap.oms/" schemaLocation="http://localhost:8080/OnlineMovieStore/OmsApp?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="getOrderApp">
-<part name="parameters" element="tns:getOrderApp"/>
+<message name="fetchUsers">
+<part name="parameters" element="tns:fetchUsers"/>
 </message>
-<message name="getOrderAppResponse">
-<part name="parameters" element="tns:getOrderAppResponse"/>
+<message name="fetchUsersResponse">
+<part name="parameters" element="tns:fetchUsersResponse"/>
 </message>
 <message name="JAXBException">
 <part name="fault" element="tns:JAXBException"/>
@@ -22,23 +22,11 @@
 <message name="Exception">
 <part name="fault" element="tns:Exception"/>
 </message>
-<message name="fetchOrders">
-<part name="parameters" element="tns:fetchOrders"/>
-</message>
-<message name="fetchOrdersResponse">
-<part name="parameters" element="tns:fetchOrdersResponse"/>
-</message>
 <message name="fetchUser">
 <part name="parameters" element="tns:fetchUser"/>
 </message>
 <message name="fetchUserResponse">
 <part name="parameters" element="tns:fetchUserResponse"/>
-</message>
-<message name="fetchUsers">
-<part name="parameters" element="tns:fetchUsers"/>
-</message>
-<message name="fetchUsersResponse">
-<part name="parameters" element="tns:fetchUsersResponse"/>
 </message>
 <message name="getUserApp">
 <part name="parameters" element="tns:getUserApp"/>
@@ -46,23 +34,17 @@
 <message name="getUserAppResponse">
 <part name="parameters" element="tns:getUserAppResponse"/>
 </message>
-<message name="fetchOrderUsingId">
-<part name="parameters" element="tns:fetchOrderUsingId"/>
+<message name="getOrderApp">
+<part name="parameters" element="tns:getOrderApp"/>
 </message>
-<message name="fetchOrderUsingIdResponse">
-<part name="parameters" element="tns:fetchOrderUsingIdResponse"/>
+<message name="getOrderAppResponse">
+<part name="parameters" element="tns:getOrderAppResponse"/>
 </message>
-<message name="fetchOrderUsingEmail">
-<part name="parameters" element="tns:fetchOrderUsingEmail"/>
+<message name="fetchOrders">
+<part name="parameters" element="tns:fetchOrders"/>
 </message>
-<message name="fetchOrderUsingEmailResponse">
-<part name="parameters" element="tns:fetchOrderUsingEmailResponse"/>
-</message>
-<message name="fetchOrderUsingStatus">
-<part name="parameters" element="tns:fetchOrderUsingStatus"/>
-</message>
-<message name="fetchOrderUsingStatusResponse">
-<part name="parameters" element="tns:fetchOrderUsingStatusResponse"/>
+<message name="fetchOrdersResponse">
+<part name="parameters" element="tns:fetchOrdersResponse"/>
 </message>
 <message name="fetchOrderUsingTitle">
 <part name="parameters" element="tns:fetchOrderUsingTitle"/>
@@ -70,7 +52,46 @@
 <message name="fetchOrderUsingTitleResponse">
 <part name="parameters" element="tns:fetchOrderUsingTitleResponse"/>
 </message>
+<message name="fetchOrderUsingStatus">
+<part name="parameters" element="tns:fetchOrderUsingStatus"/>
+</message>
+<message name="fetchOrderUsingStatusResponse">
+<part name="parameters" element="tns:fetchOrderUsingStatusResponse"/>
+</message>
+<message name="fetchOrderUsingEmail">
+<part name="parameters" element="tns:fetchOrderUsingEmail"/>
+</message>
+<message name="fetchOrderUsingEmailResponse">
+<part name="parameters" element="tns:fetchOrderUsingEmailResponse"/>
+</message>
+<message name="fetchOrderUsingId">
+<part name="parameters" element="tns:fetchOrderUsingId"/>
+</message>
+<message name="fetchOrderUsingIdResponse">
+<part name="parameters" element="tns:fetchOrderUsingIdResponse"/>
+</message>
 <portType name="OmsSOAP">
+<operation name="fetchUsers">
+<input wsam:Action="http://soap.oms/OmsSOAP/fetchUsersRequest" message="tns:fetchUsers"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/fetchUsersResponse" message="tns:fetchUsersResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/Exception"/>
+</operation>
+<operation name="fetchUser">
+<input wsam:Action="http://soap.oms/OmsSOAP/fetchUserRequest" message="tns:fetchUser"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/fetchUserResponse" message="tns:fetchUserResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/Exception"/>
+</operation>
+<operation name="getUserApp">
+<input wsam:Action="http://soap.oms/OmsSOAP/getUserAppRequest" message="tns:getUserApp"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/getUserAppResponse" message="tns:getUserAppResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/Exception"/>
+</operation>
 <operation name="getOrderApp">
 <input wsam:Action="http://soap.oms/OmsSOAP/getOrderAppRequest" message="tns:getOrderApp"/>
 <output wsam:Action="http://soap.oms/OmsSOAP/getOrderAppResponse" message="tns:getOrderAppResponse"/>
@@ -85,40 +106,12 @@
 <fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrders/Fault/IOException"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrders/Fault/Exception"/>
 </operation>
-<operation name="fetchUser">
-<input wsam:Action="http://soap.oms/OmsSOAP/fetchUserRequest" message="tns:fetchUser"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/fetchUserResponse" message="tns:fetchUserResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchUser/Fault/Exception"/>
-</operation>
-<operation name="fetchUsers">
-<input wsam:Action="http://soap.oms/OmsSOAP/fetchUsersRequest" message="tns:fetchUsers"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/fetchUsersResponse" message="tns:fetchUsersResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/Exception"/>
-</operation>
-<operation name="getUserApp">
-<input wsam:Action="http://soap.oms/OmsSOAP/getUserAppRequest" message="tns:getUserApp"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/getUserAppResponse" message="tns:getUserAppResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/Exception"/>
-</operation>
-<operation name="fetchOrderUsingId">
-<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingIdRequest" message="tns:fetchOrderUsingId"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingIdResponse" message="tns:fetchOrderUsingIdResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/Exception"/>
-</operation>
-<operation name="fetchOrderUsingEmail">
-<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmailRequest" message="tns:fetchOrderUsingEmail"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmailResponse" message="tns:fetchOrderUsingEmailResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/Exception"/>
+<operation name="fetchOrderUsingTitle">
+<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitleRequest" message="tns:fetchOrderUsingTitle"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitleResponse" message="tns:fetchOrderUsingTitleResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/Exception"/>
 </operation>
 <operation name="fetchOrderUsingStatus">
 <input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingStatusRequest" message="tns:fetchOrderUsingStatus"/>
@@ -127,16 +120,77 @@
 <fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingStatus/Fault/IOException"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingStatus/Fault/Exception"/>
 </operation>
-<operation name="fetchOrderUsingTitle">
-<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitleRequest" message="tns:fetchOrderUsingTitle"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitleResponse" message="tns:fetchOrderUsingTitleResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingTitle/Fault/Exception"/>
+<operation name="fetchOrderUsingEmail">
+<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmailRequest" message="tns:fetchOrderUsingEmail"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmailResponse" message="tns:fetchOrderUsingEmailResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingEmail/Fault/Exception"/>
+</operation>
+<operation name="fetchOrderUsingId">
+<input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingIdRequest" message="tns:fetchOrderUsingId"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingIdResponse" message="tns:fetchOrderUsingIdResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingId/Fault/Exception"/>
 </operation>
 </portType>
 <binding name="OmsSOAPPortBinding" type="tns:OmsSOAP">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="fetchUsers">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="JAXBException">
+<soap:fault name="JAXBException" use="literal"/>
+</fault>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="fetchUser">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="JAXBException">
+<soap:fault name="JAXBException" use="literal"/>
+</fault>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="getUserApp">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="JAXBException">
+<soap:fault name="JAXBException" use="literal"/>
+</fault>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
 <operation name="getOrderApp">
 <soap:operation soapAction=""/>
 <input>
@@ -173,79 +227,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="fetchUser">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="JAXBException">
-<soap:fault name="JAXBException" use="literal"/>
-</fault>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="fetchUsers">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="JAXBException">
-<soap:fault name="JAXBException" use="literal"/>
-</fault>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="getUserApp">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="JAXBException">
-<soap:fault name="JAXBException" use="literal"/>
-</fault>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="fetchOrderUsingId">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="JAXBException">
-<soap:fault name="JAXBException" use="literal"/>
-</fault>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"/>
-</fault>
-</operation>
-<operation name="fetchOrderUsingEmail">
+<operation name="fetchOrderUsingTitle">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -281,7 +263,25 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="fetchOrderUsingTitle">
+<operation name="fetchOrderUsingEmail">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="JAXBException">
+<soap:fault name="JAXBException" use="literal"/>
+</fault>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="fetchOrderUsingId">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

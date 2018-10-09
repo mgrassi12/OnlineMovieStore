@@ -27,17 +27,141 @@ public class OmsClient {
             user = oms.fetchUser(email, password);
             System.out.println("You have logged in as " + user.getName());
 
-         
             while (user != null) {
-                   String choice = null;
-            Scanner scanner = new Scanner(System.in);
-            showmenu(oms);
-            choice = scanner.nextLine();
+                String choice = null;
+                Scanner scanner = new Scanner(System.in);
+                showmenu(oms);
+                choice = scanner.nextLine();
                 switch (choice) {
                     case "1":
-                        OmsClient.showOrderByEmail(oms);
+                        for (Order order : oms.fetchOrders()) {
+                            System.out.println("id: " + order.getId());
+                            for (Movie movie : order.getMovie()) {
+                                System.out.println("movie title: " + movie.getTitle());
+                                System.out.println("movie genre: " + movie.getGenre());
+                                System.out.println("movie releasedate: " + movie.getReleasedate());
+                                System.out.println("movie price: " + movie.getPrice());
+                                System.out.println("movie pruchased: " + movie.getPurchased());
+                            }
+
+                            System.out.println("name: " + order.getName());
+                            System.out.println("email: " + order.getEmail());
+                            System.out.println("paymentmethod: " + order.getPaymentmethod());
+                            System.out.println("saletotal: " + order.getSaletotal());
+                            System.out.println("status: " + order.getStatus());
+                            System.out.println();
+                        }
                         break;
+
+                    case "2":
+
+                        System.out.println("Enter an email to search for orders:");
+                        email = scanner.nextLine();
+                        if (oms.fetchOrderUsingEmail(email) != null) {
+                            for (Order order : oms.fetchOrderUsingEmail(email)) {
+                                System.out.println("id: " + order.getId());
+                                for (Movie movie : order.getMovie()) {
+                                    System.out.println("movie title: " + movie.getTitle());
+                                    System.out.println("movie genre: " + movie.getGenre());
+                                    System.out.println("movie releasedate: " + movie.getReleasedate());
+                                    System.out.println("movie price: " + movie.getPrice());
+                                    System.out.println("movie pruchased: " + movie.getPurchased());
+                                }
+
+                                System.out.println("name: " + order.getName());
+                                System.out.println("email: " + order.getEmail());
+                                System.out.println("paymentmethod: " + order.getPaymentmethod());
+                                System.out.println("saletotal: " + order.getSaletotal());
+                                System.out.println("status: " + order.getStatus());
+                                System.out.println();
+                            }
+                        } else {
+                            System.out.println("No such email has ordered a movie");
+                            System.out.println();
+                        }
+                        break;
+
+                    case "3":
+                        System.out.println("Enter an order id to search:");
+                        int id = scanner.nextInt();
+                        if (oms.fetchOrderUsingId(id) != null) {
+                            Order order = oms.fetchOrderUsingId(id);
+                            System.out.println("id: " + order.getId());
+                            for (Movie movie : order.getMovie()) {
+                                System.out.println("movie title: " + movie.getTitle());
+                                System.out.println("movie genre: " + movie.getGenre());
+                                System.out.println("movie releasedate: " + movie.getReleasedate());
+                                System.out.println("movie price: " + movie.getPrice());
+                                System.out.println("movie pruchased: " + movie.getPurchased());
+                            }
+
+                            System.out.println("name: " + order.getName());
+                            System.out.println("email: " + order.getEmail());
+                            System.out.println("paymentmethod: " + order.getPaymentmethod());
+                            System.out.println("saletotal: " + order.getSaletotal());
+                            System.out.println("status: " + order.getStatus());
+                            System.out.println();
+                        } else {
+                            System.out.println("No such order id found");
+                            System.out.println();
+                        }
+                        break;
+
                     case "4":
+                        System.out.println("Enter a movie title to search:");
+                        String title = scanner.nextLine();
+                        if (oms.fetchOrderUsingTitle(title) != null) {
+                            for (Order order : oms.fetchOrderUsingTitle(title)) {
+                                System.out.println("id: " + order.getId());
+                                for (Movie movie : order.getMovie()) {
+                                    System.out.println("movie title: " + movie.getTitle());
+                                    System.out.println("movie genre: " + movie.getGenre());
+                                    System.out.println("movie releasedate: " + movie.getReleasedate());
+                                    System.out.println("movie price: " + movie.getPrice());
+                                    System.out.println("movie pruchased: " + movie.getPurchased());
+                                }
+
+                                System.out.println("name: " + order.getName());
+                                System.out.println("email: " + order.getEmail());
+                                System.out.println("paymentmethod: " + order.getPaymentmethod());
+                                System.out.println("saletotal: " + order.getSaletotal());
+                                System.out.println("status: " + order.getStatus());
+                                System.out.println();
+                            }
+                        } else {
+                            System.out.println("No such movie has been ordered");
+                            System.out.println();
+                        }
+                        break;
+
+                    case "5":
+                        System.out.println("Enter an order status to search:");
+                        String status = scanner.nextLine();
+                        if (oms.fetchOrderUsingStatus(status) != null) {
+                            for (Order order : oms.fetchOrderUsingStatus(status)) {
+                                System.out.println("id: " + order.getId());
+                                for (Movie movie : order.getMovie()) {
+                                    System.out.println("movie title: " + movie.getTitle());
+                                    System.out.println("movie genre: " + movie.getGenre());
+                                    System.out.println("movie releasedate: " + movie.getReleasedate());
+                                    System.out.println("movie price: " + movie.getPrice());
+                                    System.out.println("movie pruchased: " + movie.getPurchased());
+                                }
+
+                                System.out.println("name: " + order.getName());
+                                System.out.println("email: " + order.getEmail());
+                                System.out.println("paymentmethod: " + order.getPaymentmethod());
+                                System.out.println("saletotal: " + order.getSaletotal());
+                                System.out.println("status: " + order.getStatus());
+                                System.out.println();
+                            }
+                        } else {
+                            System.out.println("No such order has that status");
+                            System.out.println();
+                        }
+                        break;
+
+                    case "6":
                         user = null;
                         break;
                 }
@@ -45,19 +169,14 @@ public class OmsClient {
         }
     }
 
-    public static void showOrderByEmail(OmsSOAP oms) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
-        if (oms.fetchOrders() == null) {
-            System.out.println("lmaooo");
-        } else {
-            System.out.println("there are orders, i just cant fucking display them");
-        }
-
-    }
-
     public static void showmenu(OmsSOAP oms) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
         System.out.println("Welcome to the OMS, please select what you want");
-        System.out.println("1. Show Order By Email");
-        System.out.println("4. Logout");
+        System.out.println("1. Show all orders");
+        System.out.println("2. Search orders from email");
+        System.out.println("3. Search orders by id");
+        System.out.println("4. Search orders by movie title");
+        System.out.println("5. Search orders by order status");
+        System.out.println("6. Logout");
         System.out.print("Enter a choice: ");
     }
 }

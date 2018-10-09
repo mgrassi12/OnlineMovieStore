@@ -36,13 +36,13 @@
 
 <xs:element name="fetchUsersResponse" type="tns:fetchUsersResponse"/>
 
-<xs:element name="getUserApp" type="tns:getUserApp"/>
-
-<xs:element name="getUserAppResponse" type="tns:getUserAppResponse"/>
-
 <xs:element name="getOrderApp" type="tns:getOrderApp"/>
 
 <xs:element name="getOrderAppResponse" type="tns:getOrderAppResponse"/>
+
+<xs:element name="getUserApp" type="tns:getUserApp"/>
+
+<xs:element name="getUserAppResponse" type="tns:getUserAppResponse"/>
 
 <xs:complexType name="getUserApp">
 <xs:sequence/>
@@ -125,13 +125,7 @@
 
 <xs:complexType name="fetchOrdersResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:orders" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="orders">
-<xs:sequence>
-<xs:element name="order" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -160,6 +154,12 @@
 <xs:complexType name="orderApplication">
 <xs:sequence>
 <xs:element name="orders" type="tns:orders" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orders">
+<xs:sequence>
+<xs:element name="order" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -197,18 +197,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="fetchOrderUsingId">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="fetchOrderUsingIdResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:order" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="fetchOrderUsingStatus">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -218,6 +206,18 @@
 <xs:complexType name="fetchOrderUsingStatusResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fetchOrderUsingId">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fetchOrderUsingIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:order" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
