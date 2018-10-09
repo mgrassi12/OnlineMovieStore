@@ -19,7 +19,7 @@ public class Validator {
     private String namePattern = "([A-Z][a-z]*)+([\\s][A-Za-z]*)*";
     private String passwordPattern = "[a-zA-z0-9]+";
     private String phonePattern = "[0-9]{8,10}";
-    private String titlePattern = "[A-Za-z0-9]+";
+    private String titlePattern = "[A-Za-z0-9\\s]+";
     private String datePattern = "[0-9]{2}-[0-9]{2}-[0-9]{4}";
     private String genrePattern = "[A-Za-z]*";
     private HashMap<String, String> errors = new HashMap();

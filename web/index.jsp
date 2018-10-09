@@ -22,13 +22,7 @@
     <% ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
         if ((cart != null) || (user != null)) { %>
     <a href="checkout.jsp"> View cart </a>
-    <%       }
-        
-        String titleError = (String) session.getAttribute("titleError");
-        String genreError = (String) session.getAttribute("genreError");
-        String dateError = (String) session.getAttribute("dateError");
-
-    %>
+    <%}%>
 
     <div>
         <table class="aligncenter">
@@ -41,34 +35,13 @@
                     <input type="submit" value="Search">
                 </form>
 
-                <%                    String searchparam = request.getParameter("searchparam");
+                <%
+                    String searchparam = request.getParameter("searchparam");
                     String search = request.getParameter("search");
-                   // Validator validator = new Validator();
                     session.setAttribute("searchparam", searchparam);
                     session.setAttribute("search", search);
 
-                   /** if (search != null & searchparam != null) {
-                        if (request.getParameter(searchparam).equals("Title")) {
-                            if (!validator.validateTitle(search)) {
-                                session.setAttribute("titleError", "Incorrect title format");
-                                response.sendRedirect("index.jsp");
-                            }
-                        }
-
-                        if (request.getParameter(searchparam).equals("Genre")) {
-                            if (!validator.validatePassword(search)) {
-                                session.setAttribute("genreError", "Incorrect genre format");
-                                response.sendRedirect("index.jsp");
-
-                            }
-                        }
-                        if (request.getParameter(searchparam).equals("Years")) {
-                            if (!validator.validatePassword(search)) {
-                                session.setAttribute("dateError", "Incorrect date format");
-                                response.sendRedirect("index.jsp");
-                            }
-                        } && titleError == null && genreError == null & dateError == null*/
-                     if (search != null && !search.isEmpty()) {%>
+                    if (search != null && !search.isEmpty()) {%>
                 <br>
                 <h2> You searched for <%=searchparam%>: "<%=search%>" </h2>
                 <p></p>
