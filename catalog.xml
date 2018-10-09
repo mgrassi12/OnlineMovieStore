@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/OnlineMovieStore/loginlogoutApp?wsdl" uri="src/conf/xml-resources/web-service-references/loginlogoutApp/wsdl/localhost_8080/OnlineMovieStore/loginlogoutApp.wsdl"/>
+    <system systemId="http://localhost:8080/OnlineMovieStore/loginlogoutApp?xsd=1" uri="src/conf/xml-resources/web-service-references/loginlogoutApp/wsdl/localhost_8080/OnlineMovieStore/loginlogoutApp.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/OnlineMovieStore/loginlogoutApp?xsd=2" uri="src/conf/xml-resources/web-service-references/loginlogoutApp/wsdl/localhost_8080/OnlineMovieStore/loginlogoutApp.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/OnlineMovieStore/OmsApp?wsdl" uri="src/conf/xml-resources/web-service-references/OmsApp/wsdl/localhost_8080/OnlineMovieStore/OmsApp.wsdl"/>
+    <system systemId="http://localhost:8080/OnlineMovieStore/OmsApp?xsd=1" uri="src/conf/xml-resources/web-service-references/OmsApp/wsdl/localhost_8080/OnlineMovieStore/OmsApp.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/OnlineMovieStore/OmsApp?xsd=2" uri="src/conf/xml-resources/web-service-references/OmsApp/wsdl/localhost_8080/OnlineMovieStore/OmsApp.xsd_2.xsd"/>
+</catalog>
