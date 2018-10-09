@@ -1,5 +1,5 @@
-<%@page import="oms.user.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="oms.user.User"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,19 +13,15 @@
     <body class = "body">
         <%
             User user = (User) session.getAttribute("user");
-            if (request.getParameter("email") != null) {
-                 user.updateUser(request.getParameter("name"), request.getParameter("email"),
-                    request.getParameter("password"), request.getParameter("phone"), request.getParameter("address"));
-            }
         %>
 
         <h1>Update Account Information</h1>
         <jsp:include page="loginstatus.jsp"/>
-        <form action="accountedit.jsp" method="POST">
+        <form action="accounteditaction.jsp" method="POST">
 
             <table>
                 <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
-                <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"></td></tr>
+                <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"><input type="hidden" id="oldemail" name="oldemail" value="<%= user.getEmail()%>"></td></tr>
                 <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password"></td></tr>
                 <tr><td>Phone</td><td><input type="text" value="<%= user.getPhone()%>" name="phone"></td></tr>
                 <tr><td>Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address"></td></tr>
