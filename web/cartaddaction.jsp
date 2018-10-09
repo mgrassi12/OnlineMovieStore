@@ -12,7 +12,7 @@
 
 <body class = "body">
     <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
-    <jsp:useBean id="movieApp" class="oms.movie.MovieInventoryApplication" scope="application">
+    <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
         <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     <% 
@@ -35,7 +35,7 @@
        movie.setAvailablecopies(movie.getAvailablecopies()-1);
        movies.addMovie(movie);
        movieApp.setMovies(movies);
-       response.sendRedirect("checkout.jsp");
+       response.sendRedirect("cart.jsp");
     %>
 </body>
 </html>

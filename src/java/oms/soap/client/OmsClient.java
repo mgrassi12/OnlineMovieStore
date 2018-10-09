@@ -2,10 +2,11 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ COMMENTED OUT TEMPORARILY. FEEL FREE TO UNCOMMENT AND KEEP WORKING.
 package oms.soap.client;
 
 import java.util.*;
+import oms.soap.OmsSOAP;
 
 public class OmsClient {
 
@@ -62,4 +63,5 @@ public class OmsClient {
         System.out.println("1. Show Orders");
         System.out.print("Enter a choice: ");
     }
-}
+}<fault name="JAXBException">
+*/

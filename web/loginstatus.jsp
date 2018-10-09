@@ -17,7 +17,7 @@
 
 <div style="color: black; background: #eee; border: solid 1px #333; text-align: right; width: 100%;"><%=msg%></div>
 <% if (user != null) { %>
-<div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="main.jsp">Account</a>.</div>
+<div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="accountmain.jsp">Account</a>.</div>
 <% } else { %>
-<div style="text-align: right;"><a href="clearcartaction.jsp?previouspage=register.jsp">Register</a> or <a href="clearcartaction.jsp?previouspage=login.jsp">Login</a> if you already have an account.</div>
+<div style="text-align: right;"><a href="cartclearaction.jsp?previouspage=register.jsp">Register</a> or <a href="cartclearaction.jsp?previouspage=login.jsp">Login</a> if you already have an account.</div>
 <% }%>

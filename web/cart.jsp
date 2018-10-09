@@ -53,8 +53,8 @@
     <c:import url = "<%= xslPath%>" var = "xslt"/>
     <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
     <p><% if(cartwithoutduplicates.size() > 0){ %>
-        <a href="clearcartaction.jsp?previouspage=checkout.jsp">Clear cart</a><br>
-       <a href="checkoutfinalize.jsp">Finalize order</a><% } %><br>
+        <a href="cartclearaction.jsp?previouspage=cart.jsp">Clear cart</a><br>
+       <a href="cartcheckout.jsp">Finalize order</a><% } %><br>
        <a href="index.jsp">Continue shopping</a></p>
     </body>
 </html>

@@ -55,7 +55,7 @@
         orders.addOrder(order);
         orderApp.setOrders(orders);
         session.setAttribute("lastorderid", id);
-        response.sendRedirect("clearcartafterorderaction.jsp");
+        response.sendRedirect("ordercartclearaction.jsp");
     %>
 </body>
 </html>

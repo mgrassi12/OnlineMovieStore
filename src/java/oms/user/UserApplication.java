@@ -10,16 +10,16 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class MovieStoreApplication implements Serializable {
+public class UserApplication implements Serializable {
 
     private String filePath;
     private Users users;
     
-public MovieStoreApplication() {
+public UserApplication() {
         // TODO Auto-generated constructor stub
     }
 
-    public MovieStoreApplication(String filePath, Users users) {
+    public UserApplication(String filePath, Users users) {
         super();
         this.filePath = filePath;
         this.users = users;

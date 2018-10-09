@@ -19,7 +19,7 @@
         <br></br>
         <h3><a>
                     <xsl:attribute name="href">
-                        <xsl:text>cancelorderaction.jsp?orderid=</xsl:text>
+                        <xsl:text>ordercancelaction.jsp?orderid=</xsl:text>
                         <xsl:value-of select="nsm:id"/>
                     </xsl:attribute>
                     Order ID: <xsl:value-of select="nsm:id"/>

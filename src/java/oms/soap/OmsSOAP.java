@@ -18,7 +18,7 @@ import javax.xml.ws.handler.MessageContext;
 import oms.order.Order;
 import oms.order.OrderApplication;
 import oms.order.Orders;
-import oms.user.MovieStoreApplication;
+import oms.user.UserApplication;
 import oms.user.User;
 import oms.user.Users;
 
@@ -28,20 +28,20 @@ public class OmsSOAP {
     @Resource
     private WebServiceContext context;
 
-    // Allows the MovieStoreApplication class to be called to which we can use its functions
+    // Allows the UserApplication class to be called to which we can use its functions
     @WebMethod
-    public MovieStoreApplication getMovieStoreApp() throws JAXBException, IOException, Exception {
+    public UserApplication getUserApp() throws JAXBException, IOException, Exception {
 
         ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 
         synchronized (application) {
-            MovieStoreApplication moviestoreApp = (MovieStoreApplication) application.getAttribute("moviestoreApp");
-            if (moviestoreApp == null) {
-                moviestoreApp = new MovieStoreApplication();
-                moviestoreApp.setFilePath(application.getRealPath("WEB-INF/users.xml"));
-                application.setAttribute("moviestoreApp", moviestoreApp);
+            UserApplication userApp = (UserApplication) application.getAttribute("userApp");
+            if (userApp == null) {
+                userApp = new UserApplication();
+                userApp.setFilePath(application.getRealPath("WEB-INF/users.xml"));
+                application.setAttribute("userApp", userApp);
             }
-            return moviestoreApp;
+            return userApp;
         }
 
     }
@@ -65,12 +65,12 @@ public class OmsSOAP {
 
     @WebMethod //return Users
     public Users fetchUsers() throws JAXBException, IOException, Exception {
-        return getMovieStoreApp().getUsers();
+        return getUserApp().getUsers();
     }
 
     @WebMethod //return User
     public User fetchUser(String email, String password) throws JAXBException, IOException, Exception {
-        return getMovieStoreApp().getUsers().login(email, password);
+        return getUserApp().getUsers().login(email, password);
     }
     
     @WebMethod //return all Orders

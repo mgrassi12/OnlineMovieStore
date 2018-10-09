@@ -11,11 +11,11 @@
 
 <body class = "body">
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-    <jsp:useBean id="movieStoreApp" class="oms.user.MovieStoreApplication" scope="application">
-        <jsp:setProperty name="movieStoreApp" property="filePath" value="<%=filePath%>"/>
+    <jsp:useBean id="userApp" class="oms.user.UserApplication" scope="application">
+        <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
 
-    <% Users users = movieStoreApp.getUsers();
+    <% Users users = userApp.getUsers();
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -30,7 +30,7 @@
             response.sendRedirect("login.jsp");
         } else if (user != null) {
             session.setAttribute("user", user);
-            response.sendRedirect("main.jsp");
+            response.sendRedirect("accountmain.jsp");
         } else {
             session.setAttribute("existError", "User does not exist!");
             response.sendRedirect("login.jsp");

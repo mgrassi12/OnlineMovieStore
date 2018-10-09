@@ -19,7 +19,7 @@
         <jsp:setProperty name="orderApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     <% String filePath2 = application.getRealPath("WEB-INF/movies.xml");%>
-    <jsp:useBean id="movieApp" class="oms.movie.MovieInventoryApplication" scope="application">
+    <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
         <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath2%>"/>
     </jsp:useBean>
     <% 

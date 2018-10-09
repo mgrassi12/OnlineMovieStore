@@ -37,9 +37,10 @@ public class Orders implements Serializable {
     }
 
     public ArrayList<Order> checkEmail(String email) {
+        email = email.toLowerCase();
         ArrayList<Order> matches = new ArrayList<>();
         for (Order order : historylist) {
-            if (order.getEmail().equals(email)) {
+            if (order.getEmail().toLowerCase().equals(email)) {
                 matches.add(order);
             }
         }
@@ -47,10 +48,11 @@ public class Orders implements Serializable {
     }
 
     public ArrayList<Order> checkTitle(String title) {
+        title = title.toLowerCase();
         ArrayList<Order> matches = new ArrayList<>();
         for (Order order : historylist) {
             for (Movie movie : order.getMovies()){
-                if (movie.getTitle().equals(title)) {
+                if (movie.getTitle().toLowerCase().equals(title)) {
                     matches.add(order);
                 }
             }
@@ -60,12 +62,12 @@ public class Orders implements Serializable {
 
     public ArrayList<Order> checkStatus(String status) {
         ArrayList<Order> matches = new ArrayList<>();
+        status = status.toLowerCase();
         for (Order order : historylist) {
-            if (order.getEmail().equals(status)) {
+            if (order.getStatus().toLowerCase().equals(status)) {
                 matches.add(order);
             }
         }
         return matches;
     }
-
 }

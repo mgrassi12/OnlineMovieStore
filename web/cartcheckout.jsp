@@ -27,7 +27,7 @@
     <table>
         <tr><td><h1>Confirm your order details</h1></td></tr>
     </table>
-    <form action="checkoutaction.jsp" method="POST">
+    <form action="cartcheckoutaction.jsp" method="POST">
         <table>
             <tr><td>Email</td><td><input type="text" name="email" value="<%= email %>" </td></tr>
             <tr><td>Full Name</td><td><input type="text" name="name" value="<%= name %>" </td></tr>

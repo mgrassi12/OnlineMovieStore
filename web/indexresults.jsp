@@ -5,7 +5,7 @@
 <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
 <% String xslPath = "file:///" + application.getRealPath("xsl/movies.xsl");%>
 
-<jsp:useBean id="movieApp" class="oms.movie.MovieInventoryApplication" scope="application">
+<jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
     <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
 

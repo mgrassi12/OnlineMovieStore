@@ -40,11 +40,11 @@
 <message name="fetchUsersResponse">
 <part name="parameters" element="tns:fetchUsersResponse"/>
 </message>
-<message name="getMovieStoreApp">
-<part name="parameters" element="tns:getMovieStoreApp"/>
+<message name="getUserApp">
+<part name="parameters" element="tns:getUserApp"/>
 </message>
-<message name="getMovieStoreAppResponse">
-<part name="parameters" element="tns:getMovieStoreAppResponse"/>
+<message name="getUserAppResponse">
+<part name="parameters" element="tns:getUserAppResponse"/>
 </message>
 <message name="fetchOrderUsingId">
 <part name="parameters" element="tns:fetchOrderUsingId"/>
@@ -99,12 +99,12 @@
 <fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/IOException"/>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/fetchUsers/Fault/Exception"/>
 </operation>
-<operation name="getMovieStoreApp">
-<input wsam:Action="http://soap.oms/OmsSOAP/getMovieStoreAppRequest" message="tns:getMovieStoreApp"/>
-<output wsam:Action="http://soap.oms/OmsSOAP/getMovieStoreAppResponse" message="tns:getMovieStoreAppResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/getMovieStoreApp/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/getMovieStoreApp/Fault/IOException"/>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/getMovieStoreApp/Fault/Exception"/>
+<operation name="getUserApp">
+<input wsam:Action="http://soap.oms/OmsSOAP/getUserAppRequest" message="tns:getUserApp"/>
+<output wsam:Action="http://soap.oms/OmsSOAP/getUserAppResponse" message="tns:getUserAppResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.oms/OmsSOAP/getUserApp/Fault/Exception"/>
 </operation>
 <operation name="fetchOrderUsingId">
 <input wsam:Action="http://soap.oms/OmsSOAP/fetchOrderUsingIdRequest" message="tns:fetchOrderUsingId"/>
@@ -209,7 +209,7 @@
 <soap:fault name="Exception" use="literal"/>
 </fault>
 </operation>
-<operation name="getMovieStoreApp">
+<operation name="getUserApp">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -36,25 +36,25 @@
 
 <xs:element name="fetchUsersResponse" type="tns:fetchUsersResponse"/>
 
-<xs:element name="getMovieStoreApp" type="tns:getMovieStoreApp"/>
+<xs:element name="getUserApp" type="tns:getUserApp"/>
 
-<xs:element name="getMovieStoreAppResponse" type="tns:getMovieStoreAppResponse"/>
+<xs:element name="getUserAppResponse" type="tns:getUserAppResponse"/>
 
 <xs:element name="getOrderApp" type="tns:getOrderApp"/>
 
 <xs:element name="getOrderAppResponse" type="tns:getOrderAppResponse"/>
 
-<xs:complexType name="getMovieStoreApp">
+<xs:complexType name="getUserApp">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="getMovieStoreAppResponse">
+<xs:complexType name="getUserAppResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:movieStoreApplication" minOccurs="0"/>
+<xs:element name="return" type="tns:userApplication" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="movieStoreApplication">
+<xs:complexType name="userApplication">
 <xs:sequence>
 <xs:element name="filePath" type="xs:string" minOccurs="0"/>
 <xs:element name="users" type="tns:users" minOccurs="0"/>

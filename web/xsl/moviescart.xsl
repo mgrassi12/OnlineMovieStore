@@ -54,7 +54,7 @@
             <td>
                 <a>
                     <xsl:attribute name="href">
-                        <xsl:text>removefromcartaction.jsp?selectedmovie=</xsl:text>
+                        <xsl:text>cartremoveaction.jsp?selectedmovie=</xsl:text>
                         <xsl:value-of select="nsm:title"/>
                     </xsl:attribute>
                     Remove a copy

@@ -10,18 +10,18 @@
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
-        <jsp:useBean id="movieStoreApp" class="oms.user.MovieStoreApplication" scope="application">
-            <jsp:setProperty name="movieStoreApp" property="filePath" value="<%=filePath%>"/>
+        <jsp:useBean id="userApp" class="oms.user.UserApplication" scope="application">
+            <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         
         <%
             User user = (User) session.getAttribute("user");
             String email = user.getEmail();
-            Users users = movieStoreApp.getUsers();
+            Users users = userApp.getUsers();
             session.invalidate();
             users.removeUser(user);
-            movieStoreApp.setUsers(users);
-            response.sendRedirect("cancelallordersaction.jsp?email=" + email);
+            userApp.setUsers(users);
+            response.sendRedirect("orderscancelaction.jsp?email=" + email);
         %>
     </body>
 </html>

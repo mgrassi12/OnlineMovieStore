@@ -21,7 +21,7 @@
     <jsp:include page="loginstatus.jsp"/>
     <% ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
         if ((cart != null) || (user != null)) { %>
-    <a href="checkout.jsp"> View cart </a>
+    <a href="cart.jsp"> View cart </a>
     <%}%>
 
     <div>
@@ -45,7 +45,7 @@
                 <br>
                 <h2> You searched for <%=searchparam%>: "<%=search%>" </h2>
                 <p></p>
-                <jsp:include page="results.jsp"/>
+                <jsp:include page="indexresults.jsp"/>
                 <% }%>
             </td>
             <tr></tr>

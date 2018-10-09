@@ -21,7 +21,7 @@
 
         <h1>Update Account Information</h1>
         <jsp:include page="loginstatus.jsp"/>
-        <form action="account.jsp" method="POST">
+        <form action="accountedit.jsp" method="POST">
 
             <table>
                 <tr><td>Name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
@@ -40,7 +40,7 @@
             }
         %>
         </form>    
-        <p>Click <a href="main.jsp">here</a> to return to the Main Account Page</a>.</p>
-        <p>Click <a href="deleteaction.jsp">here</a> if you would like to delete your account.</p>
+        <p>Click <a href="accountmain.jsp">here</a> to return to the Main Account Page</a>.</p>
+        <p>Click <a href="accountdeleteaction.jsp">here</a> if you would like to delete your account.</p>
     </body>
 </html>
