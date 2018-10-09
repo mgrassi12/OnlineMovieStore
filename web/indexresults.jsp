@@ -26,7 +26,7 @@
         }
     }
     if (searchparam.equals("Years")) {
-        if (!validator.validateDate(search)) {
+        if (!validator.validateYear(search)) {
 %> <h2>Date format incorrect, please try again</h2> <%
             flag = 1;
         }

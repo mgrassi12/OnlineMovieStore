@@ -6,70 +6,70 @@
     <movie>
         <title>The Nun</title>
         <genre>Horror</genre>
-        <releasedate>06-09-2018</releasedate>
+        <releasedate>06-09-2008</releasedate>
         <price>25</price>
         <availablecopies>2</availablecopies>
     </movie>   
     <movie>
         <title>The Predator</title>
         <genre>Action</genre>
-        <releasedate>13-09-2018</releasedate>
+        <releasedate>13-09-2009</releasedate>
         <price>25</price>
         <availablecopies>2</availablecopies>
     </movie>
     <movie>
         <title>The Meg</title>
         <genre>Action</genre>
-        <releasedate>16-08-2018</releasedate>
+        <releasedate>16-08-2010</releasedate>
         <price>20</price>
         <availablecopies>3</availablecopies>
     </movie>
     <movie>
         <title>Crazy Rich Asians</title>
         <genre>Comedy</genre>
-        <releasedate>30-08-2018</releasedate>
+        <releasedate>30-08-2011</releasedate>
         <price>20</price>
         <availablecopies>3</availablecopies>
     </movie>
     <movie>
         <title>Avengers Infinity War</title>
         <genre>Action</genre>
-        <releasedate>25-04-2018</releasedate>
+        <releasedate>25-04-2012</releasedate>
         <price>15</price>
         <availablecopies>5</availablecopies>
     </movie>
     <movie>
         <title>Oceans Eight</title>
         <genre>Action</genre>
-        <releasedate>07-06-2018</releasedate>
+        <releasedate>07-06-2013</releasedate>
         <price>15</price>
         <availablecopies>5</availablecopies>
     </movie>
     <movie>
         <title>Mission Impossible Fallout</title>
         <genre>Action</genre>
-        <releasedate>02-09-2018</releasedate>
+        <releasedate>02-09-2014</releasedate>
         <price>10</price>
         <availablecopies>3</availablecopies>
     </movie>
     <movie>
         <title>Deadpool 2</title>
         <genre>Action</genre>
-        <releasedate>16-04-2018</releasedate>
+        <releasedate>16-04-2015</releasedate>
         <price>15</price>
         <availablecopies>7</availablecopies>
     </movie>
     <movie>
         <title>Halloween</title>
         <genre>Horror</genre>
-        <releasedate>25-10-2018</releasedate>
+        <releasedate>25-10-2016</releasedate>
         <price>30</price>
         <availablecopies>1</availablecopies>
     </movie>
     <movie>
         <title>Jurassic World Fallen Kingdom</title>
         <genre>Action</genre>
-        <releasedate>21-06-2018</releasedate>
+        <releasedate>21-06-2017</releasedate>
         <price>20</price>
         <availablecopies>6</availablecopies>
     </movie> 

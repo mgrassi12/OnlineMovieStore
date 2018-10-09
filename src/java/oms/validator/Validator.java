@@ -21,6 +21,7 @@ public class Validator {
     private String phonePattern = "[0-9]{8,10}";
     private String titlePattern = "[A-Za-z0-9\\s]+";
     private String datePattern = "[0-9]{2}-[0-9]{2}-[0-9]{4}";
+    private String yearPattern = "[0-9]{4}-[0-9]{4}";
     private String genrePattern = "[A-Za-z]*";
     private HashMap<String, String> errors = new HashMap();
 
@@ -60,6 +61,10 @@ public class Validator {
 
     public boolean validateDate(String date) {
         return validate(datePattern, date);
+    }
+    
+    public boolean validateYear(String date) {
+        return validate(yearPattern, date);
     }
 
     public boolean validateGenre(String genre) {
