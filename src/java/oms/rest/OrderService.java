@@ -15,16 +15,14 @@ import oms.order.Order;
 import oms.order.OrderApplication;
 import oms.order.Orders;
 
-/**
- *
- * @author Joe Ho
- */
+/**/
 @Path("/orderApp")
 public class OrderService {
 
     @Context
     private ServletContext application;
 
+    // This function serves as a way to obtain the OrderApplication class
     private OrderApplication getOrderApp() throws JAXBException, IOException, Exception {
         synchronized (application) {
             OrderApplication orderApp = (OrderApplication) application.getAttribute("orderApp");
@@ -37,39 +35,43 @@ public class OrderService {
         }
     }
 
-// A function that displays everything without parameters
+    // Gets all the orders from history.xml
     @Path("orders")
     @GET
     @Produces(MediaType.TEXT_XML)
     public Orders getOrders() throws IOException, Exception {
         return getOrderApp().getOrders();
     }
- 
+
+    // Gets orders based on the email string inputted in the url which matches with the string from history.xml
     @Path("orders/email={email}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public ArrayList<Order> getOrderEmail(@PathParam("email") String email) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderEmail(@PathParam("email") String email) throws JAXBException, IOException, Exception {
         return getOrderApp().getOrders().checkEmail(email);
     }
 
-        @Path("orders/id={id}")
+    // Gets orders based on the id integer inputted in the url which matches with the string from history.xml
+    @Path("orders/id={id}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public Order getOrderId(@PathParam("id") int id) throws JAXBException, IOException, Exception{
+    public Order getOrderId(@PathParam("id") int id) throws JAXBException, IOException, Exception {
         return getOrderApp().getOrders().checkId(id);
     }
 
-        @Path("orders/title={title}")
+    // Gets orders based on the title string inputted in the url which matches with the string from history.xml
+    @Path("orders/title={title}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public ArrayList<Order> getOrderTitle(@PathParam("title") String title) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderTitle(@PathParam("title") String title) throws JAXBException, IOException, Exception {
         return getOrderApp().getOrders().checkTitle(title);
     }
 
-        @Path("orders/status={status}")
+    // Gets orders based on the status string inputted in the url which matches with the string from history.xml
+    @Path("orders/status={status}")
     @GET
     @Produces(MediaType.TEXT_XML)
-    public ArrayList<Order> getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException, Exception{
+    public ArrayList<Order> getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException, Exception {
         return getOrderApp().getOrders().checkStatus(status);
     }
 }
