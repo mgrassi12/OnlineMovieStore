@@ -25,7 +25,6 @@ public class Order implements Serializable {
     private double saletotal;
     @XmlElement (name = "status")
     private String status;
- 
     
 public Order() {}
 

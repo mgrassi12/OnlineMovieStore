@@ -35,7 +35,6 @@ public class Orders implements Serializable {
         }
         return null;
     }
-
     public ArrayList<Order> checkEmail(String email) {
         email = email.toLowerCase();
         ArrayList<Order> matches = new ArrayList<>();

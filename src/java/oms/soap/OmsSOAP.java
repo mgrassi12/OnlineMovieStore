@@ -47,6 +47,7 @@ public class OmsSOAP {
 
     }
     
+    // Allows the OrderApplication class to be called to which we can use its functions
     @WebMethod
     public OrderApplication getOrderApp() throws JAXBException, IOException, Exception {
 

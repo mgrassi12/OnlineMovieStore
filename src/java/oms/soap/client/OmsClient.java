@@ -5,7 +5,7 @@ import static javafx.application.Platform.exit;
 import oms.user.*;
 
 public class OmsClient {
-
+// The main function contains a locator which obtains the OmsSOAP class, to which it initializes the whole SOAP application through the login method
     public static void main(String[] args) throws IOException_Exception, JAXBException_Exception, Exception_Exception {
         OmsApp locator = new OmsApp();
         OmsSOAP oms = locator.getOmsSOAPPort();
@@ -26,7 +26,7 @@ public class OmsClient {
         } else {
             user = oms.fetchUser(email, password);
             System.out.println("You have logged in as " + user.getName());
-    // There is a switch case which allows the user to do one action based on the number which they type. (1,2,3,etc)
+            // There is a switch case which allows the user to do one action based on the number which they type. (1,2,3,etc)
             while (user != null) {
                 String choice = null;
                 Scanner scanner = new Scanner(System.in);
@@ -53,8 +53,8 @@ public class OmsClient {
                             System.out.println();
                         }
                         break;
-                    
-                    // The function fetches all orders by printing out the array list of movies
+
+                    // The function fetches orders based on the string that has been inputted in the program, the string is then matched against an existing email from the XML
                     case "2":
                         System.out.println("Enter an email to search for orders:");
                         email = scanner.nextLine();
@@ -82,6 +82,7 @@ public class OmsClient {
                         }
                         break;
 
+                    // The function fetches orders based on the integer that has been inputted in the program, the integer is then matched against an existing id from the XML
                     case "3":
                         System.out.println("Enter an order id to search:");
                         int id = scanner.nextInt();
@@ -108,6 +109,7 @@ public class OmsClient {
                         }
                         break;
 
+                    // The function fetches orders based on the string that has been inputted in the program, the string is then matched against an existing movie title from the XML
                     case "4":
                         System.out.println("Enter a movie title to search:");
                         String title = scanner.nextLine();
@@ -135,6 +137,7 @@ public class OmsClient {
                         }
                         break;
 
+                    // The function fetches orders based on the string that has been inputted in the program, the string is then matched against an existing movie status from the XML
                     case "5":
                         System.out.println("Enter an order status to search:");
                         String status = scanner.nextLine();
@@ -169,7 +172,8 @@ public class OmsClient {
             }
         }
     }
-   //This prints a guideline for the switch case as it tells the user what number to type in order to do a certain action
+
+    //This prints a guideline for the switch case as it tells the user what number to type in order to do a certain action
     public static void showmenu(OmsSOAP oms) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
         System.out.println("Welcome to the OMS, please select what you want");
         System.out.println("1. Show all orders");
