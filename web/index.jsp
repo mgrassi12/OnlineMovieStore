@@ -43,7 +43,7 @@
                     String search = request.getParameter("search");
                     session.setAttribute("searchparam", searchparam);
                     session.setAttribute("search", search);
-                       
+
                     if (search != null && !search.isEmpty()) {%>
                 <br>
                 <h2> You searched for <%=searchparam%>: "<%=search%>" </h2>

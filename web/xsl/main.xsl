@@ -17,13 +17,15 @@
     
     <xsl:template match="nsm:order">
         <br></br>
-        <h3><a>
-                    <xsl:attribute name="href">
-                        <xsl:text>ordercancelaction.jsp?orderid=</xsl:text>
-                        <xsl:value-of select="nsm:id"/>
-                    </xsl:attribute>
-                    Order ID: <xsl:value-of select="nsm:id"/>
-        </a></h3>
+        <h3>
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:text>ordercancelaction.jsp?orderid=</xsl:text>
+                    <xsl:value-of select="nsm:id"/>
+                </xsl:attribute>
+                Order ID: <xsl:value-of select="nsm:id"/>
+            </a>
+        </h3>
         <table width = "50%" border="1">
             <thead>
                 <tr>
@@ -38,9 +40,12 @@
                 <xsl:apply-templates select="nsm:movie"/>
             </tbody>
         </table>
-        <p>Payment method: <xsl:value-of select="nsm:paymentmethod"/><br></br>
-        Sale total: $<xsl:value-of select="nsm:saletotal"/><br></br>
-        Order status: <xsl:value-of select="nsm:status"/></p>
+        <p>Payment method: <xsl:value-of select="nsm:paymentmethod"/>
+            <br></br>
+            Sale total: $<xsl:value-of select="nsm:saletotal"/>
+            <br></br>
+            Order status: <xsl:value-of select="nsm:status"/>
+        </p>
     </xsl:template>
     
     <xsl:template match="nsm:movie">

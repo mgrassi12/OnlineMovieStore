@@ -11,6 +11,7 @@ import oms.movie.Movie;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user", namespace = "http://www.uts.edu.au/31284/oms")
 public class User implements Serializable {
+
     @XmlElement(name = "name")
     private String name;
     @XmlElement(name = "email")
@@ -23,8 +24,9 @@ public class User implements Serializable {
     private String address;
     @XmlElement(name = "movie")
     private ArrayList<Movie> movies = new ArrayList<Movie>();
-    
-    public User() {}
+
+    public User() {
+    }
 
     public User(String name, String email, String password, String phone, String address) {
         this.name = name;
@@ -34,7 +36,7 @@ public class User implements Serializable {
         this.address = address;
         this.movies = new ArrayList<Movie>();
     }
-    
+
     public void updateUser(String name, String email, String password, String phone, String address) {
         this.email = email;
         this.name = name;
@@ -102,17 +104,17 @@ public class User implements Serializable {
     public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
     }
-    
+
     //Adds movies to the users cart
     public void addToCart(Movie movie) {
         this.movies.add(movie);
     }
-    
+
     //Removes movies from the users cart
     public void removeFromCart(Movie movie) {
         this.movies.remove(movie);
     }
-    
+
     //Clears the users cart
     public void clearCart() {
         this.movies.clear();

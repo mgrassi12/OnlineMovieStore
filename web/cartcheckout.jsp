@@ -12,15 +12,15 @@
 <body class = "body">
     <%-- Include the login status --%>
     <jsp:include page="loginstatus.jsp"/>
-    
+
     <%-- If user exists in session, get email and name--%>
     <%-- If user does not exist in session, set email and name to blank --%>
-    <%  
+    <%
         User user = (User) session.getAttribute("user");
         String email = new String();
         String name = new String();
-        
-        if(user != null){
+
+        if (user != null) {
             email = user.getEmail();
             name = user.getName();
         } else {
@@ -28,22 +28,22 @@
             name = "";
         }
     %>
-    
+
     <%-- Put email and name in form for confirmation--%>
     <table>
         <tr><td><h1>Confirm your order details</h1></td></tr>
     </table>
     <form action="cartcheckoutaction.jsp" method="POST">
         <table>
-            <tr><td>Email</td><td><input type="text" name="email" value="<%= email %>" </td></tr>
-            <tr><td>Full Name</td><td><input type="text" name="name" value="<%= name %>" </td></tr>
+            <tr><td>Email</td><td><input type="text" name="email" value="<%= email%>" </td></tr>
+            <tr><td>Full Name</td><td><input type="text" name="name" value="<%= name%>" </td></tr>
             <tr><td>Payment Method</td><td><select name="paymentmethod">
-               <option value="Credit Card">Credit Card</option>
-               <option value="PayPal">PayPal</option>
-            <tr><td></td><td><input type="submit" value="Place Order"></td></tr>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="PayPal">PayPal</option>
+                        <tr><td></td><td><input type="submit" value="Place Order"></td></tr>
         </table>
     </form>
-            
+
     <%-- Redirect to cartcheckoutaction --%>
 
 </body>

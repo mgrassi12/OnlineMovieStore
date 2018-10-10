@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie implements Serializable {
+
     @XmlElement(name = "title")
     private String title;
     @XmlElement(name = "genre")
@@ -19,9 +20,10 @@ public class Movie implements Serializable {
     private int availablecopies;
     @XmlElement(name = "purchased")
     private int purchased;
-    
-    public Movie() {}
-    
+
+    public Movie() {
+    }
+
     public Movie(String title, String genre, String releasedate, double price, int availablecopies) {
         this.title = title;
         this.genre = genre;
@@ -30,7 +32,7 @@ public class Movie implements Serializable {
         this.availablecopies = availablecopies;
         this.purchased = 0;
     }
-    
+
     //Updates movie information 
     public void updateMovie(String title, String genre, String releasedate, double price, int availablecopies) {
         this.title = title;
@@ -69,7 +71,7 @@ public class Movie implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     //Sets movie genre
     public void setGenre(String genre) {
         this.genre = genre;
@@ -89,24 +91,24 @@ public class Movie implements Serializable {
     public void setAvailablecopies(int availablecopies) {
         this.availablecopies = availablecopies;
     }
-    
+
     //Matches the dates of movies that users search for
-    public boolean matchDate(String years){
+    public boolean matchDate(String years) {
         int release_year = Integer.parseInt(this.releasedate.substring(Math.max(0, this.releasedate.length() - 4), this.releasedate.length()));
         int begin_year = Integer.parseInt(years.substring(0, Math.min(years.length(), 4)));
         int end_year = Integer.parseInt(years.substring(Math.max(0, years.length() - 4), years.length()));
         return ((release_year >= begin_year) && (release_year <= end_year));
     }
-    
+
     //Matches the genre of movies that users search for
-    public boolean matchGenre(String genre2){
+    public boolean matchGenre(String genre2) {
         String genre_1 = this.genre.toLowerCase().trim();
         String genre_2 = genre2.toLowerCase().trim();
         return genre_1.equals(genre_2);
     }
-    
+
     //Matches the title of movies that users search for
-    public boolean matchTitle(String title2){
+    public boolean matchTitle(String title2) {
         String title_1 = this.title.toLowerCase().trim();
         String title_2 = title2.toLowerCase().trim();
         return title_1.equals(title_2);

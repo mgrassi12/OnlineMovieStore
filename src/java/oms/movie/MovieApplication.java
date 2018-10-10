@@ -10,6 +10,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class MovieApplication {
+
     private String filePath;
     private Movies movies;
 
@@ -19,12 +20,12 @@ public class MovieApplication {
     }
 
     //Sets the filepath
-    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {        
+    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
         JAXBContext jc = JAXBContext.newInstance(Movies.class);
         Unmarshaller u = jc.createUnmarshaller();
         this.filePath = filePath;
         FileInputStream fin = new FileInputStream(filePath);
-        movies = (Movies)u.unmarshal(fin);
+        movies = (Movies) u.unmarshal(fin);
         fin.close();
     }
 
@@ -38,7 +39,7 @@ public class MovieApplication {
         this.movies = movies;
         updateXML(this.movies, this.filePath);
     }
-    
+
     //Updates the movies.xml with the given movies
     public void updateXML(Movies movies, String filePath) throws Exception {
         this.movies = movies;

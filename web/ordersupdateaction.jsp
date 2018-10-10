@@ -12,22 +12,26 @@
 </head>
 
 <body class = "body">
+    <%-- JavaBean --%>
     <% String filePath = application.getRealPath("WEB-INF/history.xml");%>
     <jsp:useBean id="orderApp" class="oms.order.OrderApplication" scope="application">
         <jsp:setProperty name="orderApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-    <% 
+
+    <%-- Updates orders to remain associated with a user who has edited their account details. --%>
+    <%
         Orders orders = orderApp.getOrders();
         String oldemail = (String) session.getAttribute("oldemail");
         String newemail = (String) session.getAttribute("newemail");
         ArrayList<Order> userorders = orders.checkEmail(oldemail);
-        for (Order order : userorders){
+        // Sets the email of the user's orders to match the user's current email.
+        for (Order order : userorders) {
             orders.removeOrder(order);
-            order.setEmail(newemail);        
+            order.setEmail(newemail);
             orders.addOrder(order);
             orderApp.setOrders(orders);
         }
-        response.sendRedirect("accountedit.jsp?email="+newemail);
+        response.sendRedirect("accountedit.jsp?email=" + newemail);
     %>
 </body>
 </html>

@@ -48,6 +48,7 @@
                 session.setAttribute("phoneError", "Incorrect phone format");
                 response.sendRedirect("register.jsp");
             } else {
+                //The user is new and valid; save the user in the system. 
                 users.addUser(user);
                 session.setAttribute("user", user);
                 userApp.setUsers(users);

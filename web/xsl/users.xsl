@@ -42,7 +42,7 @@
             <td>
                 <xsl:value-of select="nsm:password" />
             </td>
-             <td>
+            <td>
                 <xsl:value-of select="nsm:phone" />
             </td>
             <td>

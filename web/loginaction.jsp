@@ -22,12 +22,12 @@
         String password = request.getParameter("password");
         User user = users.login(email, password);
         Validator validator = new Validator();
-        
+
         //Checks to see if the email has already been used
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailError", "Incorrect email format");
             response.sendRedirect("login.jsp");
-        }  //Checks to see if the password has already been used
+        } //Checks to see if the password has already been used
         else if (!validator.validatePassword(password)) {
             session.setAttribute("passwordError", "Incorrect password format");
             response.sendRedirect("login.jsp");

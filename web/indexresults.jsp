@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
-<%-- Gets real path of xml file, sets path of xsl file --%>
+<%-- Gets real path of xml and gets real path of xsl file --%>
 <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
 <% String xslPath = "file:///" + application.getRealPath("xsl/movies.xsl");%>
 

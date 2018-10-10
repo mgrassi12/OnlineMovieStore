@@ -11,16 +11,19 @@
 </head>
 
 <body class = "body">
+    <%-- JavaBean --%>
     <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
     <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
         <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-    <% 
-       ArrayList<Movie> cart_movies = new ArrayList<Movie>();
-       ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
-       User user = (User) session.getAttribute("user");
-       
-       if(user != null){
+
+    <%-- Clears the cart of movies without restocking them. --%>
+    <%
+        ArrayList<Movie> cart_movies = new ArrayList<Movie>();
+        ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
+        User user = (User) session.getAttribute("user");
+
+        if (user != null) {
             cart_movies = (ArrayList) user.getMovies().clone();
             user.clearCart();
         } else {
@@ -28,8 +31,8 @@
             cart.clear();
             session.setAttribute("cart", cart);
         }
-       
-       response.sendRedirect("orderview.jsp");
+
+        response.sendRedirect("orderview.jsp");
     %>
 </body>
 </html>

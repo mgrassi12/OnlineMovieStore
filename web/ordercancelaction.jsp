@@ -14,33 +14,42 @@
 </head>
 
 <body class = "body">
+    <%-- JavaBean --%>
     <% String filePath = application.getRealPath("WEB-INF/history.xml");%>
     <jsp:useBean id="orderApp" class="oms.order.OrderApplication" scope="application">
         <jsp:setProperty name="orderApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    <%-- JavaBean --%>
     <% String filePath2 = application.getRealPath("WEB-INF/movies.xml");%>
     <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
         <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath2%>"/>
     </jsp:useBean>
-    <% 
+
+    <%-- Sets order status to "cancelled" and restocks affected movies. --%>
+    <%
         Orders orders = orderApp.getOrders();
         int orderid = Integer.parseInt(request.getParameter("orderid"));
         Order order = orders.checkId(orderid);
-        if(order.getStatus() == "Submitted"){
+        // If the order's status is submitted
+        if (order.getStatus() == "Submitted") {
+            // set the status to cancelled,
             orders.removeOrder(order);
-            order.setStatus("Cancelled");        
+            order.setStatus("Cancelled");
             orders.addOrder(order);
+            // save changes to orders, update in XML,
             orderApp.setOrders(orders);
 
+            // and restock the affected movies.
             ArrayList<Movie> affected_movies = order.getMovies();
             Movies all_movies = movieApp.getMovies();
-            for (Movie movie : affected_movies){
+            for (Movie movie : affected_movies) {
                 Movie matched_movie = all_movies.getTitleMatches(movie.getTitle()).get(0);
                 int currentcopies = matched_movie.getAvailablecopies();
                 all_movies.removeMovie(matched_movie);
                 matched_movie.setAvailablecopies(currentcopies + movie.getPurchased());
                 all_movies.addMovie(matched_movie);
             }
+            // Save changes to movies and update in XML. 
             movieApp.setMovies(all_movies);
         }
         response.sendRedirect("accountmain.jsp");

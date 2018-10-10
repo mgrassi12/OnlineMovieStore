@@ -26,7 +26,7 @@
             <tr><td></td><td><input type="submit" value="Login"></td></tr>
         </table>
     </form>
-    <% 
+    <%
         if (request.getParameter("submitted") != null) {
             existError = emailError = passwordError = null;
         }

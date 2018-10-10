@@ -8,13 +8,13 @@
         <title>Updating account</title>
     </head>
     <body>
-        
+
         <%-- Update user, redirect to ordersupdateaction --%>
         <%
             User user = (User) session.getAttribute("user");
             if (request.getParameter("email") != null) {
-                 user.updateUser(request.getParameter("name"), request.getParameter("email"),
-                    request.getParameter("password"), request.getParameter("phone"), request.getParameter("address"));
+                user.updateUser(request.getParameter("name"), request.getParameter("email"),
+                        request.getParameter("password"), request.getParameter("phone"), request.getParameter("address"));
             }
             session.setAttribute("oldemail", request.getParameter("oldemail"));
             session.setAttribute("newemail", request.getParameter("email"));

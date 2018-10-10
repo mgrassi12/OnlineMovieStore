@@ -25,7 +25,7 @@
 </head>
 
 <body class = "body">
-    
+
     <%-- If user does not exist in session, redirect to login page --%>
     <%
         User user = (User) session.getAttribute("user");
@@ -33,17 +33,17 @@
             response.sendRedirect("login.jsp");
         }
     %>
-    
+
     <h1>Main page</h1>
-    
+
     <%-- Include the login status --%>
     <jsp:include page="loginstatus.jsp"/>
-    
+
     <%-- Shows welcome message, provides links to edit account and view OMS movie inventory --%>
     <h2>Welcome, <%=user.getName()%></h2>
     <p>Click <a href="accountedit.jsp">here</a> to edit your account.<br></br>
-       Click <a href="index.jsp">here</a> to view the movie inventory.</p>
-    
+        Click <a href="index.jsp">here</a> to view the movie inventory.</p>
+
     <%-- Gets the user's orders and puts them in an ArrayList of Order --%>
     <%
         Orders orders = orderApp.getOrders();
@@ -55,7 +55,7 @@
     <history xmlns="http://www.uts.edu.au/31284/oms"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.uts.edu.au/31284/oms history.xsd">
-        <% for (Order order : user_orders) { %>
+        <% for (Order order : user_orders) {%>
         <order>
             <id><%= order.getId()%></id>
                 <% for (Movie movie : order.getMovies()) {%>
@@ -73,7 +73,7 @@
             <saletotal><%= order.getSaletotal()%></saletotal>
             <status><%= order.getStatus()%></status>
         </order>
-        <% } %>
+        <% }%>
     </history>
 </c:set>
 

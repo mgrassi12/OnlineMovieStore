@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package oms.rest;
 
 import com.sun.jersey.api.provider.jaxb.XmlHeader;
