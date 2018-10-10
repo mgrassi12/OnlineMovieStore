@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package oms.rest;
 
+import com.sun.jersey.api.provider.jaxb.XmlHeader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import javax.xml.bind.JAXBException;
+import javax.xml.parsers.*;
 import oms.order.Order;
 import oms.order.OrderApplication;
 import oms.order.Orders;
+import org.w3c.dom.*;
 
 /**/
 @Path("/orderApp")

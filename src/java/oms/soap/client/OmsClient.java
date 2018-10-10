@@ -26,13 +26,14 @@ public class OmsClient {
         } else {
             user = oms.fetchUser(email, password);
             System.out.println("You have logged in as " + user.getName());
-
+    // There is a switch case which allows the user to do one action based on the number which they type. (1,2,3,etc)
             while (user != null) {
                 String choice = null;
                 Scanner scanner = new Scanner(System.in);
                 showmenu(oms);
                 choice = scanner.nextLine();
                 switch (choice) {
+                    // The function fetches all orders by printing out the array list of movies
                     case "1":
                         for (Order order : oms.fetchOrders()) {
                             System.out.println("id: " + order.getId());
@@ -52,9 +53,9 @@ public class OmsClient {
                             System.out.println();
                         }
                         break;
-
+                    
+                    // The function fetches all orders by printing out the array list of movies
                     case "2":
-
                         System.out.println("Enter an email to search for orders:");
                         email = scanner.nextLine();
                         if (oms.fetchOrderUsingEmail(email) != null) {
@@ -168,7 +169,7 @@ public class OmsClient {
             }
         }
     }
-
+   //This prints a guideline for the switch case as it tells the user what number to type in order to do a certain action
     public static void showmenu(OmsSOAP oms) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
         System.out.println("Welcome to the OMS, please select what you want");
         System.out.println("1. Show all orders");
