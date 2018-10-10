@@ -25,7 +25,8 @@ public class OrderApplication implements Serializable {
         this.orders = orders;
 
     }
-    
+
+    //Sets the filepath
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
         JAXBContext jc = JAXBContext.newInstance(Orders.class);
         Unmarshaller u = jc.createUnmarshaller();
@@ -34,16 +35,19 @@ public class OrderApplication implements Serializable {
         orders = (Orders) u.unmarshal(fin);
         fin.close();
     }
-    
-    public Orders getOrders(){
+
+    //Gets orders
+    public Orders getOrders() {
         return orders;
     }
-    
-    public void setOrders(Orders orders) throws Exception{
+
+    //Sets orders
+    public void setOrders(Orders orders) throws Exception {
         this.orders = orders;
         updateXML(this.orders, this.filePath);
     }
-    
+
+    //This function updates the XML
     public void updateXML(Orders orders, String filePath) throws Exception {
         this.orders = orders;
         this.filePath = filePath;

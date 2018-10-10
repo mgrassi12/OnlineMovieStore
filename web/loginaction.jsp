@@ -15,24 +15,28 @@
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
 
-    <% Users users = userApp.getUsers();
-
+    <%
+        //Sets variables to be used for validation checking
+        Users users = userApp.getUsers();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         User user = users.login(email, password);
         Validator validator = new Validator();
-
+        
+        //Checks to see if the email has already been used
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailError", "Incorrect email format");
             response.sendRedirect("login.jsp");
-        } else if (!validator.validatePassword(password)) {
+        }  //Checks to see if the password has already been used
+        else if (!validator.validatePassword(password)) {
             session.setAttribute("passwordError", "Incorrect password format");
             response.sendRedirect("login.jsp");
-        } else if (user != null) {
+        } //Checks to see if the user exists  
+        else if (user != null) {
             session.setAttribute("user", user);
             response.sendRedirect("accountmain.jsp");
         } else {
-            session.setAttribute("existError", "User does not exist!");
+            session.setAttribute("existError", "Email or password is incorrect");
             response.sendRedirect("login.jsp");
         }
     %>

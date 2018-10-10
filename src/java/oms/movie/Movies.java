@@ -14,21 +14,27 @@ public class Movies implements Serializable {
     @XmlElement(name = "movie")
     private ArrayList<Movie> list = new ArrayList<Movie>();
  
+    //Returns an array list of all movies in movies.xml
     public ArrayList<Movie> getList() {
         return list;
     }
 
+    //Sets the current movie with the given movie
     public void setList(ArrayList<Movie> list) {
         this.list = list;
     }
     
+    //Adds a movie to movies.xml
     public void addMovie(Movie movie) {
         list.add(movie);
     }
+    
+    //Removes a movie from movies.xml
     public void removeMovie(Movie movie) {
         list.remove(movie);
     }
     
+    //Compares to see if and how many movies match with the searched title
     public ArrayList<Movie> getTitleMatches(String title){
         ArrayList<Movie> matches = new ArrayList<>();
         for(Movie movie:list){
@@ -39,6 +45,7 @@ public class Movies implements Serializable {
         return matches;
     }
     
+    //Compares to see if and how many movies match with the searched genre
     public ArrayList<Movie> getGenreMatches(String genre){
         ArrayList<Movie> matches = new ArrayList<>();
         for(Movie movie:list){
@@ -49,6 +56,7 @@ public class Movies implements Serializable {
         return matches;
     }
     
+    //Compares to see if and how many movies match with the searched year or years
     public ArrayList<Movie> getDateMatches(String date){
         ArrayList<Movie> matches = new ArrayList<>();
         for(Movie movie:list){

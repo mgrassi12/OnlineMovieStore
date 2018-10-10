@@ -15,82 +15,58 @@ import java.util.regex.Pattern;
  */
 public class Validator {
 
+    //Setting patterns for each type that needs validation
     private String emailPattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}";
     private String namePattern = "([A-Z][a-z]*)+([\\s][A-Za-z]*)*";
     private String passwordPattern = "[a-zA-z0-9]+";
     private String phonePattern = "[0-9]{8,10}";
     private String titlePattern = "[A-Za-z0-9\\s]+";
-    private String datePattern = "[0-9]{2}-[0-9]{2}-[0-9]{4}";
-    private String yearPattern = "[0-9]{4}-[0-9]{4}";
+    private String yearPattern = "[0-9]{4}(-[0-9]{4}){0,1}";
     private String genrePattern = "[A-Za-z]*";
-    private HashMap<String, String> errors = new HashMap();
 
     public Validator() {
 
     }
 
-    public void add(String key, String err) {
-        errors.put(key, err);
-    }
-
+    //Method used to compare pattern of what has been given against the predefined pattern
     public boolean validate(String pattern, String input) {
         Pattern regEx = Pattern.compile(pattern);
         Matcher match = regEx.matcher(input);
         return match.matches();
     }
 
+    //Method used to validate email
     public boolean validateEmail(String email) {
         return validate(emailPattern, email);
     }
 
+    //Method used to validate name
     public boolean validateName(String name) {
         return validate(namePattern, name);
     }
 
+    //Method used to validate password
     public boolean validatePassword(String password) {
         return validate(passwordPattern, password);
     }
 
+    //Method used to validate phone
     public boolean validatePhone(String phone) {
         return validate(phonePattern, phone);
     }
 
+    //Method used to validate title
     public boolean validateTitle(String title) {
         return validate(titlePattern, title);
     }
 
-    public boolean validateDate(String date) {
-        return validate(datePattern, date);
-    }
-    
+    //Method used to validate year
     public boolean validateYear(String date) {
         return validate(yearPattern, date);
     }
 
+    //Method used to validate genre
     public boolean validateGenre(String genre) {
         return validate(genrePattern, genre);
     }
-
-    public boolean testOption(String type) {
-        return type != null;
-    }
-
-    public HashMap errors() {
-        return errors;
-    }
-
-    public void clearLogs() {
-        errors.clear();
-    }
-
-    public String error(String key) {
-
-        for (Map.Entry<String, String> e : errors.entrySet()) {
-            if (e.getKey().equals(key)) {
-                return e.getValue();
-            }
-        }
-        return null;
-    }
-
 }

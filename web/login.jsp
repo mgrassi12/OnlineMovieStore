@@ -10,13 +10,15 @@
 
 <body class = "body">
 
-    <%  String existError = (String) session.getAttribute("existError");
+    <%  //Sets the errors to the session attributes defined in loginaction.jsp
+        String existError = (String) session.getAttribute("existError");
         String emailError = (String) session.getAttribute("emailError");
         String passwordError = (String) session.getAttribute("passwordError");
     %>
     <h1>Login</h1>
     <p class="aligncenter"></p>
     <jsp:include page="loginstatus.jsp"/>
+    <!-- A form where users input their login information to login -->
     <form action="loginaction.jsp" method="POST">
         <table>
             <tr><td>Email</td><td><input type="text" name="email" required</td><td></td></tr>
@@ -24,12 +26,13 @@
             <tr><td></td><td><input type="submit" value="Login"></td></tr>
         </table>
     </form>
-    <%
+    <% 
         if (request.getParameter("submitted") != null) {
             existError = emailError = passwordError = null;
         }
         session.invalidate();
     %>
+    <!-- Displays the error messages if there are any -->
     <br>
     <%=(existError != null ? existError : "")%>
     <%=(emailError != null ? emailError : "")%>

@@ -12,23 +12,27 @@ import javax.xml.bind.Unmarshaller;
 
 public class UserApplication implements Serializable {
 
+    //Initialising filepath and users variables
     private String filePath;
     private Users users;
-    
-public UserApplication() {
+
+    public UserApplication() {
         // TODO Auto-generated constructor stub
     }
 
+    //Sets both users and filepath
     public UserApplication(String filePath, Users users) {
         super();
         this.filePath = filePath;
         this.users = users;
     }
 
+    //Returns filepath
     public String getFilePath() {
         return filePath;
     }
 
+    //Sets filepath
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
         JAXBContext jc = JAXBContext.newInstance(Users.class);
         Unmarshaller u = jc.createUnmarshaller();
@@ -38,14 +42,17 @@ public UserApplication() {
         fin.close();
     }
 
+    //Gets users
     public Users getUsers() {
         return users;
     }
 
+    //Sets users
     public void setUsers(Users users) {
         this.users = users;
     }
 
+    //Updates the users.xml
     public void updateXML(Users users, String filePath) throws Exception {
         this.users = users;
         this.filePath = filePath;

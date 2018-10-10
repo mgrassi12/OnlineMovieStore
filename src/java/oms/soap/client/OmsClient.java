@@ -6,6 +6,7 @@ import oms.user.*;
 
 public class OmsClient {
 // The main function contains a locator which obtains the OmsSOAP class, to which it initializes the whole SOAP application through the login method
+
     public static void main(String[] args) throws IOException_Exception, JAXBException_Exception, Exception_Exception {
         OmsApp locator = new OmsApp();
         OmsSOAP oms = locator.getOmsSOAPPort();
@@ -33,7 +34,7 @@ public class OmsClient {
                 showmenu(oms);
                 choice = scanner.nextLine();
                 switch (choice) {
-                    // The function fetches all orders by printing out the array list of movies
+                    // The function fetches all orders by printing out the array list of orders
                     case "1":
                         for (Order order : oms.fetchOrders()) {
                             System.out.println("id: " + order.getId());

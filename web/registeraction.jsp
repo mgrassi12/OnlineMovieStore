@@ -16,6 +16,7 @@
     </jsp:useBean>
 
     <%
+        //Sets variables to be used for validation checking
         Users users = userApp.getUsers();
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -25,20 +26,25 @@
         User user = new User(name, email, password, phone, address);
         Validator validator = new Validator();
 
+        //Checks to see if the email has already been used
         if (users.checkEmail("email") != null) {
             response.sendRedirect("register.jsp");
-            session.setAttribute("existError", "User is already registered!");
+            session.setAttribute("existError", "User is already registered");
         } else {
+            //Checks to see if the name of the user meets the validation criteria
             if (!validator.validateName(name)) {
                 session.setAttribute("nameError", "Incorrect name format");
                 response.sendRedirect("register.jsp");
-            } else if (!validator.validateEmail(email)) {
+            } //Checks to see if the email of the user meets the validation criteria        
+            else if (!validator.validateEmail(email)) {
                 session.setAttribute("emailError", "Incorrect email format");
                 response.sendRedirect("register.jsp");
-            } else if (!validator.validatePassword(password)) {
+            } //Checks to see if the password of the user meets the validation criteria 
+            else if (!validator.validatePassword(password)) {
                 session.setAttribute("passwordError", "Incorrect password format");
                 response.sendRedirect("register.jsp");
-            } else if (!validator.validatePhone(phone)) {
+            } //Checks to see if the phone of the user meets the validation criteria 
+            else if (!validator.validatePhone(phone)) {
                 session.setAttribute("phoneError", "Incorrect phone format");
                 response.sendRedirect("register.jsp");
             } else {

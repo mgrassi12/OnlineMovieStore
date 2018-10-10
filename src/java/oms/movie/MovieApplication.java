@@ -13,10 +13,12 @@ public class MovieApplication {
     private String filePath;
     private Movies movies;
 
+    //Gets filepath
     public String getFilePath() {
         return filePath;
     }
 
+    //Sets the filepath
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {        
         JAXBContext jc = JAXBContext.newInstance(Movies.class);
         Unmarshaller u = jc.createUnmarshaller();
@@ -26,15 +28,18 @@ public class MovieApplication {
         fin.close();
     }
 
+    //Gets movies
     public Movies getMovies() {
         return movies;
     }
 
+    //Sets movies, by updating movies.xml
     public void setMovies(Movies movies) throws Exception {
         this.movies = movies;
         updateXML(this.movies, this.filePath);
     }
     
+    //Updates the movies.xml with the given movies
     public void updateXML(Movies movies, String filePath) throws Exception {
         this.movies = movies;
         this.filePath = filePath;
