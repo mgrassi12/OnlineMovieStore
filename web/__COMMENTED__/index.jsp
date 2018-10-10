@@ -12,18 +12,21 @@
     <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
 </head>
 
+<%-- Gets user from session--%>
 <%
     User user = (User) session.getAttribute("user");
 %>
 
 <body class = "body">
     <h1>Movie Inventory</h1>
+    <%-- Include the login status --%>
     <jsp:include page="loginstatus.jsp"/>
+    <%-- If cart exists in session or user exists in session --%>
     <% ArrayList<Movie> cart = (ArrayList<Movie>) session.getAttribute("cart");
         if ((cart != null) || (user != null)) { %>
     <a href="cart.jsp"> View cart </a>
     <%}%>
-
+    <%-- Search form --%>
     <div>
         <table class="aligncenter">
             <td>
@@ -40,11 +43,12 @@
                     String search = request.getParameter("search");
                     session.setAttribute("searchparam", searchparam);
                     session.setAttribute("search", search);
-
+                       
                     if (search != null && !search.isEmpty()) {%>
                 <br>
                 <h2> You searched for <%=searchparam%>: "<%=search%>" </h2>
                 <p></p>
+                <%-- If search exists in the session and search is not empty, include results --%>
                 <jsp:include page="indexresults.jsp"/>
                 <% }%>
             </td>

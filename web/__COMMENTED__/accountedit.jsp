@@ -10,13 +10,17 @@
         <img src="blockbusterlogo.png" alt="Blockbuster Logo" class="logo">
     </head>
     
+    <%-- Gets user from session --%>
     <body class = "body">
         <%
             User user = (User) session.getAttribute("user");
         %>
 
         <h1>Update Account Information</h1>
+        <%-- Include the login status --%>
         <jsp:include page="loginstatus.jsp"/>
+        
+        <%-- Start of form for user to edit their details--%>
         <form action="accounteditaction.jsp" method="POST">
 
             <table>
@@ -27,7 +31,8 @@
                 <tr><td>Address</td><td><input type="text" value="<%= user.getAddress()%>" name="address"></td></tr>
                 <tr><td></td><td><input type="submit" value="Save"></td></tr>
             </table>
-                
+        
+        <%-- After the save button is pressed, if there is a value in the email field, display details updated. --%>
         <%
             if (request.getParameter("email") != null) {
         %>
@@ -36,6 +41,7 @@
             }
         %>
         </form>    
+        <%-- Links to main account page and delete page --%>
         <p>Click <a href="accountmain.jsp">here</a> to return to the Main Account Page</a>.</p>
         <p>Click <a href="accountdeleteaction.jsp">here</a> if you would like to delete your account.</p>
     </body>

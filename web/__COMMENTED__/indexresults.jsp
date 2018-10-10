@@ -2,13 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
+<%-- Gets real path of xml file, sets path of xsl file --%>
 <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
 <% String xslPath = "file:///" + application.getRealPath("xsl/movies.xsl");%>
 
+<%-- JavaBean --%>
 <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
     <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
 
+<%-- Validates input --%>
+<%-- If input is not valid, return a header that displays the error --%>
+<%-- If input is valid, put the matches in an ArrayList of Movie--%>
+<%-- If input is valid, and no matches found, return a header that displays this --%>
 <% String search = request.getParameter("search");
     String searchparam = request.getParameter("searchparam");
     Validator validator = new Validator();
@@ -49,6 +55,7 @@
 <% } else {%>
 <h3>Please select the movie you would like to add to your cart: </h3>
 
+<%-- Generate XML file with the matched movies --%>
 <c:set var = "xmltext"> 
     <movies xmlns="http://www.uts.edu.au/31284/oms"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -67,6 +74,7 @@
     </movies> 
 </c:set>
 
+<%-- Transform this generated XML file with the provided XSL file --%>
 <c:import url = "<%= xslPath%>" var = "xslt"/>
 <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>   <%}
     }%>

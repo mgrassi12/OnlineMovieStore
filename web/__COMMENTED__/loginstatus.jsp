@@ -1,5 +1,8 @@
 <%@page language="java" import="oms.user.User" contentType="text/html" pageEncoding="UTF-8"%>
 
+<%-- Gets user --%>
+<%-- If user exists in session, show user is logged in --%>
+<%-- If user does not exist in session, show you are not logged in--%>
 <%
     String log;
     String msg;
@@ -14,7 +17,8 @@
     }
 %>
 
-
+<%-- If user exists in session, display Logout and Account buttons--%>
+<%-- If user does not exist in session, display Register and Login buttons --%>
 <div style="color: black; background: #eee; border: solid 1px #333; text-align: right; width: 100%;"><%=msg%></div>
 <% if (user != null) { %>
 <div style="text-align: right;"><a href="logout.jsp">Logout</a> or view your <a href="accountmain.jsp">Account</a>.</div>
