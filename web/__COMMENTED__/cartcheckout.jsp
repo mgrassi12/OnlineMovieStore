@@ -10,7 +10,11 @@
 </head>
 
 <body class = "body">
+    <%-- Include the login status --%>
     <jsp:include page="loginstatus.jsp"/>
+    
+    <%-- If user exists in session, get email and name--%>
+    <%-- If user does not exist in session, set email and name to blank --%>
     <%  
         User user = (User) session.getAttribute("user");
         String email = new String();
@@ -24,6 +28,8 @@
             name = "";
         }
     %>
+    
+    <%-- Put email and name in form for confirmation--%>
     <table>
         <tr><td><h1>Confirm your order details</h1></td></tr>
     </table>
@@ -37,5 +43,8 @@
             <tr><td></td><td><input type="submit" value="Place Order"></td></tr>
         </table>
     </form>
+            
+    <%-- Redirect to cartcheckoutaction --%>
+
 </body>
 </html>

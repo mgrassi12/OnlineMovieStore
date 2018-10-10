@@ -9,11 +9,14 @@
         <title>Deleting User</title>
     </head>
     <body>
+        
+        <%-- JavaBean --%>
         <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
         <jsp:useBean id="userApp" class="oms.user.UserApplication" scope="application">
             <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         
+        <%-- Invalidate session, remove the user, redirect to ordercancelaction.jsp --%>
         <%
             User user = (User) session.getAttribute("user");
             String email = user.getEmail();

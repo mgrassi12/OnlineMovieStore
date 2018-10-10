@@ -8,6 +8,8 @@
         <title>Updating account</title>
     </head>
     <body>
+        
+        <%-- Update user, redirect to ordersupdateaction --%>
         <%
             User user = (User) session.getAttribute("user");
             if (request.getParameter("email") != null) {

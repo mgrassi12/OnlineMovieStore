@@ -11,10 +11,16 @@
 </head>
 
 <body class = "body">
+    
+    <%-- JavaBean --%>
     <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
     <jsp:useBean id="movieApp" class="oms.movie.MovieApplication" scope="application">
         <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    
+    <%-- If user exists in session, add the movie to the user's cart --%>
+    <%-- If user does not exist in session, create a new cart, and add the movie to the cart --%>
+    <%-- Update available copies --%>
     <% 
        Movie movie = new Movie();
        User user = (User) session.getAttribute("user");
